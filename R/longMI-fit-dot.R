@@ -119,6 +119,7 @@
     variances,
     factors,
     covariances,
+    "\n",
     model_add,
     collapse = "\n"
   )
