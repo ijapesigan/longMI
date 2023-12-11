@@ -151,6 +151,13 @@ lapply(
         )
       }
     )
+    strict_fit <- Strict(
+      data = osbornesudick1972,
+      time_points = time_points,
+      factor_loadings = factor_loadings,
+      covariances = TRUE, # coverage
+      mimic = "mplus"
+    )
   },
   tol = 0.001,
   text = "test"
