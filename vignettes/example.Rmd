@@ -83,128 +83,23 @@ mi <- Invariance(
 )
 ```
 
-PERHAPS WE CAN MAKE METHODS TO SIMPLIFY THE OUTPUT.
+Fit Measures
 
 
 ```r
-mi$fit_measures
-#>                                 configural          weak        strong
-#> npar                          2.500000e+01  2.200000e+01  1.900000e+01
-#> fmin                          6.364765e-02  1.026893e-01  1.316735e-01
-#> chisq                         2.596824e+01  4.189725e+01  5.372281e+01
-#> df                            1.900000e+01  2.200000e+01  2.500000e+01
-#> pvalue                        1.310764e-01  6.432407e-03  7.216997e-04
-#> baseline.chisq                8.477405e+02  8.477405e+02  8.477405e+02
-#> baseline.df                   2.800000e+01  2.800000e+01  2.800000e+01
-#> baseline.pvalue               0.000000e+00  0.000000e+00  0.000000e+00
-#> cfi                           9.914995e-01  9.757274e-01  9.649611e-01
-#> tli                           9.874729e-01  9.691076e-01  9.607564e-01
-#> cfi.robust                    9.914995e-01  9.757274e-01  9.649611e-01
-#> tli.robust                    9.874729e-01  9.691076e-01  9.607564e-01
-#> nnfi                          9.874729e-01  9.691076e-01  9.607564e-01
-#> rfi                           9.548577e-01  9.370989e-01  9.290236e-01
-#> nfi                           9.693677e-01  9.505777e-01  9.366282e-01
-#> pnfi                          6.577852e-01  7.468825e-01  8.362752e-01
-#> ifi                           9.915918e-01  9.759037e-01  9.650889e-01
-#> rni                           9.914995e-01  9.757274e-01  9.649611e-01
-#> nnfi.robust                   9.874729e-01  9.691076e-01  9.607564e-01
-#> rni.robust                    9.914995e-01  9.757274e-01  9.649611e-01
-#> logl                         -5.601115e+03 -5.609079e+03 -5.614992e+03
-#> unrestricted.logl            -5.588131e+03 -5.588131e+03 -5.588131e+03
-#> aic                           1.125223e+04  1.126216e+04  1.126798e+04
-#> bic                           1.133518e+04  1.133516e+04  1.133103e+04
-#> ntotal                        2.040000e+02  2.040000e+02  2.040000e+02
-#> bic2                          1.125597e+04  1.126545e+04  1.127083e+04
-#> rmsea                         4.240037e-02  6.658404e-02  7.504614e-02
-#> rmsea.ci.lower                0.000000e+00  3.464774e-02  4.720491e-02
-#> rmsea.ci.upper                7.945826e-02  9.696861e-02  1.027290e-01
-#> rmsea.ci.level                9.000000e-01  9.000000e-01  9.000000e-01
-#> rmsea.pvalue                  5.882580e-01  1.734975e-01  6.712191e-02
-#> rmsea.close.h0                5.000000e-02  5.000000e-02  5.000000e-02
-#> rmsea.notclose.pvalue         4.718752e-02  2.532922e-01  4.095424e-01
-#> rmsea.notclose.h0             8.000000e-02  8.000000e-02  8.000000e-02
-#> rmsea.robust                  4.240037e-02  6.658404e-02  7.504614e-02
-#> rmsea.ci.lower.robust         0.000000e+00  3.464774e-02  4.720491e-02
-#> rmsea.ci.upper.robust         7.945826e-02  9.696861e-02  1.027290e-01
-#> rmsea.pvalue.robust           5.882580e-01  1.734975e-01  6.712191e-02
-#> rmsea.notclose.pvalue.robust  4.718752e-02  2.532922e-01  4.095424e-01
-#> rmr                           2.859752e+00  7.496699e+00  7.600600e+00
-#> rmr_nomean                    3.161575e+00  8.287912e+00  8.401847e+00
-#> srmr                          3.064127e-02  7.629877e-02  8.718366e-02
-#> srmr_bentler                  3.064126e-02  7.202174e-02  8.589969e-02
-#> srmr_bentler_nomean           3.387519e-02  7.962303e-02  9.429007e-02
-#> crmr                          3.387520e-02  5.370899e-02  6.853573e-02
-#> crmr_nomean                   3.841087e-02  6.090027e-02  7.664719e-02
-#> srmr_mplus                    3.064127e-02  7.629877e-02  8.718366e-02
-#> srmr_mplus_nomean             3.387520e-02  6.520903e-02  7.931397e-02
-#> cn_05                         2.378000e+02  1.661799e+02  1.439766e+02
-#> cn_01                         2.853064e+02  1.971711e+02  1.692726e+02
-#> gfi                           9.946870e-01  9.913395e-01  9.890256e-01
-#> agfi                          9.876963e-01  9.826790e-01  9.806851e-01
-#> pgfi                          4.295239e-01  4.956698e-01  5.619464e-01
-#> mfi                           9.830660e-01  9.524023e-01  9.320218e-01
-#> ecvi                          3.723933e-01  4.210650e-01  4.496216e-01
-#>                                     strict
-#> npar                          1.500000e+01
-#> fmin                          3.298018e-01
-#> chisq                         1.345591e+02
-#> df                            2.900000e+01
-#> pvalue                        1.554312e-15
-#> baseline.chisq                8.477405e+02
-#> baseline.df                   2.800000e+01
-#> baseline.pvalue               0.000000e+00
-#> cfi                           8.712286e-01
-#> tli                           8.756690e-01
-#> cfi.robust                    8.712286e-01
-#> tli.robust                    8.756690e-01
-#> nnfi                          8.756690e-01
-#> rfi                                     NA
-#> nfi                                     NA
-#> pnfi                          8.713187e-01
-#> ifi                           8.710713e-01
-#> rni                           8.712286e-01
-#> nnfi.robust                   8.756690e-01
-#> rni.robust                    8.712286e-01
-#> logl                         -5.655410e+03
-#> unrestricted.logl            -5.588131e+03
-#> aic                           1.134082e+04
-#> bic                           1.139059e+04
-#> ntotal                        2.040000e+02
-#> bic2                          1.134307e+04
-#> rmsea                         1.335777e-01
-#> rmsea.ci.lower                1.112465e-01
-#> rmsea.ci.upper                1.567971e-01
-#> rmsea.ci.level                9.000000e-01
-#> rmsea.pvalue                  3.567812e-09
-#> rmsea.close.h0                5.000000e-02
-#> rmsea.notclose.pvalue         9.999344e-01
-#> rmsea.notclose.h0             8.000000e-02
-#> rmsea.robust                  1.335777e-01
-#> rmsea.ci.lower.robust         1.112465e-01
-#> rmsea.ci.upper.robust         1.567971e-01
-#> rmsea.pvalue.robust           3.567812e-09
-#> rmsea.notclose.pvalue.robust  9.999344e-01
-#> rmr                           1.006330e+01
-#> rmr_nomean                    1.112501e+01
-#> srmr                          1.690386e-01
-#> srmr_bentler                  1.328427e-01
-#> srmr_bentler_nomean           1.465099e-01
-#> crmr                          8.865701e-02
-#> crmr_nomean                   9.986277e-02
-#> srmr_mplus                    1.690386e-01
-#> srmr_mplus_nomean             1.452372e-01
-#> cn_05                         6.551901e+01
-#> cn_01                         7.617832e+01
-#> gfi                           9.759012e-01
-#> agfi                          9.634363e-01
-#> pgfi                          6.432076e-01
-#> mfi                           7.720366e-01
-#> ecvi                          8.066624e-01
+mi
+#>               chisq df pvalue    cfi    tli  rmsea   srmr      aic      bic
+#> configural  25.9682 19 0.1311 0.9915 0.9875 0.0424 0.0306 11252.23 11335.18
+#> weak        41.8973 22 0.0064 0.9757 0.9691 0.0666 0.0763 11262.16 11335.16
+#> strong      53.7228 25 0.0007 0.9650 0.9608 0.0750 0.0872 11267.98 11331.03
+#> strict     134.5591 29 0.0000 0.8712 0.8757 0.1336 0.1690 11340.82 11390.59
 ```
 
+Likelihood Ratio Tests
+
 
 ```r
-mi$difference
+summary(mi)
 #> $`configural against weak`
 #> 
 #> Chi-Squared Difference Test
@@ -580,128 +475,24 @@ mi <- Comparison(
 )
 ```
 
-PERHAPS WE CAN MAKE METHODS TO SIMPLIFY THE OUTPUT.
+Fit Measures
+
 
 
 ```r
-mi$fit_measures
-#>                                 configural          weak        strong
-#> npar                          2.500000e+01  2.200000e+01  1.900000e+01
-#> fmin                          6.364765e-02  1.026893e-01  1.316735e-01
-#> chisq                         2.596824e+01  4.189725e+01  5.372281e+01
-#> df                            1.900000e+01  2.200000e+01  2.500000e+01
-#> pvalue                        1.310764e-01  6.432407e-03  7.216997e-04
-#> baseline.chisq                8.477405e+02  8.477405e+02  8.477405e+02
-#> baseline.df                   2.800000e+01  2.800000e+01  2.800000e+01
-#> baseline.pvalue               0.000000e+00  0.000000e+00  0.000000e+00
-#> cfi                           9.914995e-01  9.757274e-01  9.649611e-01
-#> tli                           9.874729e-01  9.691076e-01  9.607564e-01
-#> cfi.robust                    9.914995e-01  9.757274e-01  9.649611e-01
-#> tli.robust                    9.874729e-01  9.691076e-01  9.607564e-01
-#> nnfi                          9.874729e-01  9.691076e-01  9.607564e-01
-#> rfi                           9.548577e-01  9.370989e-01  9.290236e-01
-#> nfi                           9.693677e-01  9.505777e-01  9.366282e-01
-#> pnfi                          6.577852e-01  7.468825e-01  8.362752e-01
-#> ifi                           9.915918e-01  9.759037e-01  9.650889e-01
-#> rni                           9.914995e-01  9.757274e-01  9.649611e-01
-#> nnfi.robust                   9.874729e-01  9.691076e-01  9.607564e-01
-#> rni.robust                    9.914995e-01  9.757274e-01  9.649611e-01
-#> logl                         -5.601115e+03 -5.609079e+03 -5.614992e+03
-#> unrestricted.logl            -5.588131e+03 -5.588131e+03 -5.588131e+03
-#> aic                           1.125223e+04  1.126216e+04  1.126798e+04
-#> bic                           1.133518e+04  1.133516e+04  1.133103e+04
-#> ntotal                        2.040000e+02  2.040000e+02  2.040000e+02
-#> bic2                          1.125597e+04  1.126545e+04  1.127083e+04
-#> rmsea                         4.240037e-02  6.658404e-02  7.504614e-02
-#> rmsea.ci.lower                0.000000e+00  3.464774e-02  4.720491e-02
-#> rmsea.ci.upper                7.945826e-02  9.696861e-02  1.027290e-01
-#> rmsea.ci.level                9.000000e-01  9.000000e-01  9.000000e-01
-#> rmsea.pvalue                  5.882580e-01  1.734975e-01  6.712191e-02
-#> rmsea.close.h0                5.000000e-02  5.000000e-02  5.000000e-02
-#> rmsea.notclose.pvalue         4.718752e-02  2.532922e-01  4.095424e-01
-#> rmsea.notclose.h0             8.000000e-02  8.000000e-02  8.000000e-02
-#> rmsea.robust                  4.240037e-02  6.658404e-02  7.504614e-02
-#> rmsea.ci.lower.robust         0.000000e+00  3.464774e-02  4.720491e-02
-#> rmsea.ci.upper.robust         7.945826e-02  9.696861e-02  1.027290e-01
-#> rmsea.pvalue.robust           5.882580e-01  1.734975e-01  6.712191e-02
-#> rmsea.notclose.pvalue.robust  4.718752e-02  2.532922e-01  4.095424e-01
-#> rmr                           2.859752e+00  7.496699e+00  7.600600e+00
-#> rmr_nomean                    3.161575e+00  8.287912e+00  8.401847e+00
-#> srmr                          3.064127e-02  7.629877e-02  8.718366e-02
-#> srmr_bentler                  3.064126e-02  7.202174e-02  8.589969e-02
-#> srmr_bentler_nomean           3.387519e-02  7.962303e-02  9.429007e-02
-#> crmr                          3.387520e-02  5.370899e-02  6.853573e-02
-#> crmr_nomean                   3.841087e-02  6.090027e-02  7.664719e-02
-#> srmr_mplus                    3.064127e-02  7.629877e-02  8.718366e-02
-#> srmr_mplus_nomean             3.387520e-02  6.520903e-02  7.931397e-02
-#> cn_05                         2.378000e+02  1.661799e+02  1.439766e+02
-#> cn_01                         2.853064e+02  1.971711e+02  1.692726e+02
-#> gfi                           9.946870e-01  9.913395e-01  9.890256e-01
-#> agfi                          9.876963e-01  9.826790e-01  9.806851e-01
-#> pgfi                          4.295239e-01  4.956698e-01  5.619464e-01
-#> mfi                           9.830660e-01  9.524023e-01  9.320218e-01
-#> ecvi                          3.723933e-01  4.210650e-01  4.496216e-01
-#>                                     strict
-#> npar                          1.500000e+01
-#> fmin                          3.298018e-01
-#> chisq                         1.345591e+02
-#> df                            2.900000e+01
-#> pvalue                        1.554312e-15
-#> baseline.chisq                8.477405e+02
-#> baseline.df                   2.800000e+01
-#> baseline.pvalue               0.000000e+00
-#> cfi                           8.712286e-01
-#> tli                           8.756690e-01
-#> cfi.robust                    8.712286e-01
-#> tli.robust                    8.756690e-01
-#> nnfi                          8.756690e-01
-#> rfi                                     NA
-#> nfi                                     NA
-#> pnfi                          8.713187e-01
-#> ifi                           8.710713e-01
-#> rni                           8.712286e-01
-#> nnfi.robust                   8.756690e-01
-#> rni.robust                    8.712286e-01
-#> logl                         -5.655410e+03
-#> unrestricted.logl            -5.588131e+03
-#> aic                           1.134082e+04
-#> bic                           1.139059e+04
-#> ntotal                        2.040000e+02
-#> bic2                          1.134307e+04
-#> rmsea                         1.335777e-01
-#> rmsea.ci.lower                1.112465e-01
-#> rmsea.ci.upper                1.567971e-01
-#> rmsea.ci.level                9.000000e-01
-#> rmsea.pvalue                  3.567812e-09
-#> rmsea.close.h0                5.000000e-02
-#> rmsea.notclose.pvalue         9.999344e-01
-#> rmsea.notclose.h0             8.000000e-02
-#> rmsea.robust                  1.335777e-01
-#> rmsea.ci.lower.robust         1.112465e-01
-#> rmsea.ci.upper.robust         1.567971e-01
-#> rmsea.pvalue.robust           3.567812e-09
-#> rmsea.notclose.pvalue.robust  9.999344e-01
-#> rmr                           1.006330e+01
-#> rmr_nomean                    1.112501e+01
-#> srmr                          1.690386e-01
-#> srmr_bentler                  1.328427e-01
-#> srmr_bentler_nomean           1.465099e-01
-#> crmr                          8.865701e-02
-#> crmr_nomean                   9.986277e-02
-#> srmr_mplus                    1.690386e-01
-#> srmr_mplus_nomean             1.452372e-01
-#> cn_05                         6.551901e+01
-#> cn_01                         7.617832e+01
-#> gfi                           9.759012e-01
-#> agfi                          9.634363e-01
-#> pgfi                          6.432076e-01
-#> mfi                           7.720366e-01
-#> ecvi                          8.066624e-01
+mi
+#>               chisq df pvalue    cfi    tli  rmsea   srmr      aic      bic
+#> configural  25.9682 19 0.1311 0.9915 0.9875 0.0424 0.0306 11252.23 11335.18
+#> weak        41.8973 22 0.0064 0.9757 0.9691 0.0666 0.0763 11262.16 11335.16
+#> strong      53.7228 25 0.0007 0.9650 0.9608 0.0750 0.0872 11267.98 11331.03
+#> strict     134.5591 29 0.0000 0.8712 0.8757 0.1336 0.1690 11340.82 11390.59
 ```
 
+Likelihood Ratio Tests
+
 
 ```r
-mi$difference
+summary(mi)
 #> $`configural against weak`
 #> 
 #> Chi-Squared Difference Test

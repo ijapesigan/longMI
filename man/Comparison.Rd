@@ -56,7 +56,8 @@ mi <- Comparison(
   strong = strong_fit,
   strict = strict_fit
 )
-names(mi)
+print(mi)
+summary(mi)
 }
 \seealso{
 Other Longitudinal Measurement Invariance Functions: 

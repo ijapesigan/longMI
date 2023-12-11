@@ -90,14 +90,16 @@ mi <- Invariance(
 )
 ```
 
-PERHAPS WE CAN MAKE METHODS TO SIMPLIFY THE OUTPUT.
+Fit Measures
 
 ```{r}
-mi$fit_measures
+mi
 ```
 
+Likelihood Ratio Tests
+
 ```{r}
-mi$difference
+summary(mi)
 ```
 
 ## Fitting the Models One at a Time
@@ -152,14 +154,17 @@ mi <- Comparison(
 )
 ```
 
-PERHAPS WE CAN MAKE METHODS TO SIMPLIFY THE OUTPUT.
+Fit Measures
+
 
 ```{r}
-mi$fit_measures
+mi
 ```
 
+Likelihood Ratio Tests
+
 ```{r}
-mi$difference
+summary(mi)
 ```
 
 ## References

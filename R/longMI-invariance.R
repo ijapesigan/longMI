@@ -33,7 +33,8 @@
 #'     c(1, 2, 3, 4)
 #'   )
 #' )
-#' names(mi)
+#' print(mi)
+#' summary(mi)
 #' @export
 #' @family Longitudinal Measurement Invariance Functions
 #' @keywords manSASInvariance invariance
@@ -134,11 +135,16 @@ Invariance <- function(data,
   )
   dim(diff_names) <- NULL
   names(diff) <- diff_names
+  out <- list(
+    fit = fit,
+    fit_measures = fit_measures,
+    difference = diff
+  )
+  class(out) <- c(
+    "longmi",
+    class(out)
+  )
   return(
-    list(
-      fit = fit,
-      fit_measures = fit_measures,
-      difference = diff
-    )
+    out
   )
 }

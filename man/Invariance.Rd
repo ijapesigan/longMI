@@ -60,7 +60,8 @@ mi <- Invariance(
     c(1, 2, 3, 4)
   )
 )
-names(mi)
+print(mi)
+summary(mi)
 }
 \seealso{
 Other Longitudinal Measurement Invariance Functions: 

@@ -19,6 +19,9 @@ reference:
   - has_keyword("strong")
   - has_keyword("strict")
   - has_keyword("comparison")
+- title: Methods
+  contents:
+  - has_keyword("methods")
 - title: Data
   contents:
   - has_keyword("data")

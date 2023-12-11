@@ -52,6 +52,8 @@ lapply(
       strong = strong_fit,
       strict = strict_fit
     )
+    print(mi_comparison)
+    summary(mi_comparison)
     npar_mi_comparison <- mi_comparison$fit_measures["npar", ]
     chisq_mi_comparison <- mi_comparison$fit_measures["chisq", ]
     mi_invariance <- Invariance(
@@ -59,6 +61,8 @@ lapply(
       time_points = time_points,
       factor_loadings = factor_loadings
     )
+    print(mi_invariance)
+    summary(mi_invariance)
     npar_mi_invariance <- mi_invariance$fit_measures["npar", ]
     chisq_mi_invariance <- mi_invariance$fit_measures["chisq", ]
     testthat::test_that(

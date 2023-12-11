@@ -43,7 +43,8 @@
 #'   strong = strong_fit,
 #'   strict = strict_fit
 #' )
-#' names(mi)
+#' print(mi)
+#' summary(mi)
 #' @export
 #' @family Longitudinal Measurement Invariance Functions
 #' @keywords manSASInvariance comparison
@@ -131,11 +132,16 @@ Comparison <- function(configural = NULL,
     what = "cbind",
     args = fit_measures
   )
+  out <- list(
+    fit = fit,
+    fit_measures = fit_measures,
+    difference = diff
+  )
+  class(out) <- c(
+    "longmi",
+    class(out)
+  )
   return(
-    list(
-      fit = fit,
-      fit_measures = fit_measures,
-      difference = diff
-    )
+    out
   )
 }
