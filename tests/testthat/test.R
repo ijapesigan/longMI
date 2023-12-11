@@ -92,7 +92,8 @@ lapply(
           all(
             abs(
               round(
-                chisq_mi_comparison, digits = 3
+                chisq_mi_comparison,
+                digits = 3
               ) - c(25.968, 41.897, 53.723, 134.559)
             ) <= tol
           )
@@ -106,7 +107,8 @@ lapply(
           all(
             abs(
               round(
-                chisq_mi_invariance, digits = 3
+                chisq_mi_invariance,
+                digits = 3
               ) - c(25.968, 41.897, 53.723, 134.559)
             ) <= tol
           )
