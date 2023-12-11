@@ -62,7 +62,10 @@
 <span>  <span class="va">time_points</span>,</span>
 <span>  <span class="va">factor_loadings</span>,</span>
 <span>  covariances <span class="op">=</span> <span class="cn">FALSE</span>,</span>
-<span>  model_add <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  model_add_configural <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  model_add_weak <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  model_add_strong <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  model_add_strict <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  <span class="va">...</span></span>
 <span><span class="op">)</span></span></code></pre></div>
     </div>
@@ -94,8 +97,24 @@ If <code>covariance = TRUE</code>,
 model the covariances of the measurement error.</p></dd>
 
 
-<dt>model_add</dt>
-<dd><p>Additional specification added to the lavaan model syntax.</p></dd>
+<dt>model_add_configural</dt>
+<dd><p>Additional specification added to the lavaan model syntax
+for the configural invariance model.</p></dd>
+
+
+<dt>model_add_weak</dt>
+<dd><p>Additional specification added to the lavaan model syntax
+for the weak invariance model.</p></dd>
+
+
+<dt>model_add_strong</dt>
+<dd><p>Additional specification added to the lavaan model syntax
+for the strong invariance model.</p></dd>
+
+
+<dt>model_add_strict</dt>
+<dd><p>Additional specification added to the lavaan model syntax
+for the strict invariance model.</p></dd>
 
 
 <dt>...</dt>
