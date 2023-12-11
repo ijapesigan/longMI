@@ -15,7 +15,14 @@
 #' @param covariances Logical.
 #'   If `covariance = TRUE`,
 #'   model the covariances of the measurement error.
-#' @param model_add Additional specification added to the lavaan model syntax.
+#' @param model_add_configural Additional specification added to the lavaan model syntax
+#'   for the configural invariance model.
+#' @param model_add_weak Additional specification added to the lavaan model syntax
+#'   for the weak invariance model.
+#' @param model_add_strong Additional specification added to the lavaan model syntax
+#'   for the strong invariance model.
+#' @param model_add_strict Additional specification added to the lavaan model syntax
+#'   for the strict invariance model.
 #' @param ... Additional arguments to pass to [lavaan::cfa()].
 #' @examples
 #' data("osbornesudick1972", package = "longMI")
@@ -34,7 +41,10 @@ Invariance <- function(data,
                        time_points,
                        factor_loadings,
                        covariances = FALSE,
-                       model_add = NULL,
+                       model_add_configural = NULL,
+                       model_add_weak = NULL,
+                       model_add_strong = NULL,
+                       model_add_strict = NULL,
                        ...) {
   models <- c(
     "configural",
@@ -42,17 +52,48 @@ Invariance <- function(data,
     "strong",
     "strict"
   )
-  fit <- lapply(
-    X = 0:3,
-    FUN = .Fit,
+  configural <- .Fit(
+    type = 0,
     data = data,
     time_points = time_points,
     factor_loadings = factor_loadings,
     covariances = covariances,
-    model_add = model_add,
+    model_add = model_add_configural,
     ...
   )
-  names(fit) <- models
+  weak <- .Fit(
+    type = 1,
+    data = data,
+    time_points = time_points,
+    factor_loadings = factor_loadings,
+    covariances = covariances,
+    model_add = model_add_weak,
+    ...
+  )
+  strong <- .Fit(
+    type = 2,
+    data = data,
+    time_points = time_points,
+    factor_loadings = factor_loadings,
+    covariances = covariances,
+    model_add = model_add_strong,
+    ...
+  )
+  strict <- .Fit(
+    type = 3,
+    data = data,
+    time_points = time_points,
+    factor_loadings = factor_loadings,
+    covariances = covariances,
+    model_add = model_add_strict,
+    ...
+  )
+  fit <- list(
+    configural = configural,
+    weak = weak,
+    strong = strong,
+    strict = strict
+  )
   fit_measures <- lapply(
     X = fit,
     FUN = lavaan::inspect,

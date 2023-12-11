@@ -9,7 +9,10 @@ Invariance(
   time_points,
   factor_loadings,
   covariances = FALSE,
-  model_add = NULL,
+  model_add_configural = NULL,
+  model_add_weak = NULL,
+  model_add_strong = NULL,
+  model_add_strict = NULL,
   ...
 )
 }
@@ -31,7 +34,17 @@ for the specific factor.}
 If \code{covariance = TRUE},
 model the covariances of the measurement error.}
 
-\item{model_add}{Additional specification added to the lavaan model syntax.}
+\item{model_add_configural}{Additional specification added to the lavaan model syntax
+for the configural invariance model.}
+
+\item{model_add_weak}{Additional specification added to the lavaan model syntax
+for the weak invariance model.}
+
+\item{model_add_strong}{Additional specification added to the lavaan model syntax
+for the strong invariance model.}
+
+\item{model_add_strict}{Additional specification added to the lavaan model syntax
+for the strict invariance model.}
 
 \item{...}{Additional arguments to pass to \code{\link[lavaan:cfa]{lavaan::cfa()}}.}
 }
