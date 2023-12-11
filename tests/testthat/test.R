@@ -92,8 +92,7 @@ lapply(
           all(
             abs(
               round(
-                chisq_mi_comparison,
-                digits = 3
+                chisq_mi_comparison, digits = 3
               ) - c(25.968, 41.897, 53.723, 134.559)
             ) <= tol
           )
@@ -107,8 +106,7 @@ lapply(
           all(
             abs(
               round(
-                chisq_mi_invariance,
-                digits = 3
+                chisq_mi_invariance, digits = 3
               ) - c(25.968, 41.897, 53.723, 134.559)
             ) <= tol
           )
@@ -150,6 +148,13 @@ lapply(
           )
         )
       }
+    )
+    strict_fit <- Strict(
+      data = osbornesudick1972,
+      time_points = time_points,
+      factor_loadings = factor_loadings,
+      covariances = TRUE, # coverage
+      mimic = "mplus"
     )
   },
   tol = 0.001,
