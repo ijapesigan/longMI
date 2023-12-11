@@ -2,7 +2,7 @@
 #'
 #' @author Ivan Jacob Agaloos Pesigan
 #'
-#' @inheritParams Invariance
+#' @inheritParams Configural
 #' @examples
 #' data("osbornesudick1972", package = "longMI")
 #' strong_fit <- Strong(

@@ -112,6 +112,11 @@
   )
   if (is.null(model_add)) {
     model_add <- ""
+  } else {
+    paste0(
+      model_add,
+      collapse = "\n"
+    )
   }
   model <- paste0(
     loadings,
