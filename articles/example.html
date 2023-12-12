@@ -138,91 +138,48 @@ strong, and strict invariance models).</p>
 <p>Fit Measures</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">mi</span></span>
+<span><span class="co">#&gt; Call:</span></span>
+<span><span class="co">#&gt; Invariance(data = df, time_points = time_points, factor_loadings = factor_loadings, </span></span>
+<span><span class="co">#&gt;     mimic = "mplus")</span></span>
 <span><span class="co">#&gt;               chisq df pvalue    cfi    tli  rmsea   srmr      aic      bic</span></span>
 <span><span class="co">#&gt; configural  25.9682 19 0.1311 0.9915 0.9875 0.0424 0.0306 11252.23 11335.18</span></span>
 <span><span class="co">#&gt; weak        41.8973 22 0.0064 0.9757 0.9691 0.0666 0.0763 11262.16 11335.16</span></span>
 <span><span class="co">#&gt; strong      53.7228 25 0.0007 0.9650 0.9608 0.0750 0.0872 11267.98 11331.03</span></span>
 <span><span class="co">#&gt; strict     134.5591 29 0.0000 0.8712 0.8757 0.1336 0.1690 11340.82 11390.59</span></span></code></pre></div>
-<p>Likelihood Ratio Tests</p>
+<p>Chi-square Difference Tests</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">mi</span><span class="op">)</span></span>
-<span><span class="co">#&gt; $`configural against weak`</span></span>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/anova.html" class="external-link">anova</a></span><span class="op">(</span><span class="va">mi</span><span class="op">)</span></span>
+<span><span class="co">#&gt; Call:</span></span>
+<span><span class="co">#&gt; Invariance(data = df, time_points = time_points, factor_loadings = factor_loadings, </span></span>
+<span><span class="co">#&gt;     mimic = "mplus")</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Chi-Squared Difference Test</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt;            Df   AIC   BIC  Chisq Chisq diff   RMSEA Df diff Pr(&gt;Chisq)   </span></span>
-<span><span class="co">#&gt; configural 19 11252 11335 25.968                                         </span></span>
-<span><span class="co">#&gt; weak       22 11262 11335 41.897     15.929 0.14535       3   0.001173 **</span></span>
-<span><span class="co">#&gt; ---</span></span>
-<span><span class="co">#&gt; Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $`configural against strong`</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Chi-Squared Difference Test</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt;            Df   AIC   BIC  Chisq Chisq diff   RMSEA Df diff Pr(&gt;Chisq)    </span></span>
-<span><span class="co">#&gt; configural 19 11252 11335 25.968                                          </span></span>
-<span><span class="co">#&gt; strong     25 11268 11331 53.723     27.755 0.13332       6  0.0001045 ***</span></span>
-<span><span class="co">#&gt; ---</span></span>
-<span><span class="co">#&gt; Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $`configural against strict`</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Chi-Squared Difference Test</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt;            Df   AIC   BIC   Chisq Chisq diff   RMSEA Df diff Pr(&gt;Chisq)    </span></span>
-<span><span class="co">#&gt; configural 19 11252 11335  25.968                                          </span></span>
-<span><span class="co">#&gt; strict     29 11341 11391 134.559     108.59 0.21984      10  &lt; 2.2e-16 ***</span></span>
-<span><span class="co">#&gt; ---</span></span>
-<span><span class="co">#&gt; Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $`weak against strong`</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Chi-Squared Difference Test</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt;        Df   AIC   BIC  Chisq Chisq diff   RMSEA Df diff Pr(&gt;Chisq)   </span></span>
-<span><span class="co">#&gt; weak   22 11262 11335 41.897                                         </span></span>
-<span><span class="co">#&gt; strong 25 11268 11331 53.723     11.826 0.12009       3   0.008005 **</span></span>
-<span><span class="co">#&gt; ---</span></span>
-<span><span class="co">#&gt; Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $`weak against strict`</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Chi-Squared Difference Test</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt;        Df   AIC   BIC   Chisq Chisq diff   RMSEA Df diff Pr(&gt;Chisq)    </span></span>
-<span><span class="co">#&gt; weak   22 11262 11335  41.897                                          </span></span>
-<span><span class="co">#&gt; strict 29 11341 11391 134.559     92.662 0.24492       7  &lt; 2.2e-16 ***</span></span>
-<span><span class="co">#&gt; ---</span></span>
-<span><span class="co">#&gt; Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $`strong against strict`</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Chi-Squared Difference Test</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt;        Df   AIC   BIC   Chisq Chisq diff   RMSEA Df diff Pr(&gt;Chisq)    </span></span>
-<span><span class="co">#&gt; strong 25 11268 11331  53.723                                          </span></span>
-<span><span class="co">#&gt; strict 29 11341 11391 134.559     80.836 0.30686       4  &lt; 2.2e-16 ***</span></span>
+<span><span class="co">#&gt;              Df   AIC   BIC   Chisq Chisq diff   RMSEA Df diff Pr(&gt;Chisq)    </span></span>
+<span><span class="co">#&gt; 1.configural 19 11252 11335  25.968                                          </span></span>
+<span><span class="co">#&gt; 1.weak       22 11262 11335  41.897     15.929 0.14535       3  0.0011726 ** </span></span>
+<span><span class="co">#&gt; 2.configural 19 11252 11335  25.968                                          </span></span>
+<span><span class="co">#&gt; 2.strong     25 11268 11331  53.723     27.755 0.13332       6  0.0001045 ***</span></span>
+<span><span class="co">#&gt; 3.configural 19 11252 11335  25.968                                          </span></span>
+<span><span class="co">#&gt; 3.strict     29 11341 11391 134.559    108.591 0.21984      10  &lt; 2.2e-16 ***</span></span>
+<span><span class="co">#&gt; 4.weak       22 11262 11335  41.897                                          </span></span>
+<span><span class="co">#&gt; 4.strong     25 11268 11331  53.723     11.826 0.12009       3  0.0080053 ** </span></span>
+<span><span class="co">#&gt; 5.weak       22 11262 11335  41.897                                          </span></span>
+<span><span class="co">#&gt; 5.strict     29 11341 11391 134.559     92.662 0.24492       7  &lt; 2.2e-16 ***</span></span>
+<span><span class="co">#&gt; 6.strong     25 11268 11331  53.723                                          </span></span>
+<span><span class="co">#&gt; 6.strict     29 11341 11391 134.559     80.836 0.30686       4  &lt; 2.2e-16 ***</span></span>
 <span><span class="co">#&gt; ---</span></span>
 <span><span class="co">#&gt; Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</span></span></code></pre></div>
-</div>
-<div class="section level2">
-<h2 id="fitting-the-models-one-at-a-time">Fitting the Models One at a Time<a class="anchor" aria-label="anchor" href="#fitting-the-models-one-at-a-time"></a>
-</h2>
-<p>The models can also be fitted one at a time using the
-<code><a href="../reference/Configural.html">Configural()</a></code>, <code><a href="../reference/Weak.html">Weak()</a></code>, <code><a href="../reference/Strong.html">Strong()</a></code>,
-and <code><a href="../reference/Strict.html">Strict()</a></code> functions.</p>
-<div class="section level3">
-<h3 id="model-fitting">Model Fitting<a class="anchor" aria-label="anchor" href="#model-fitting"></a>
-</h3>
+<p>Summary of the fitted models</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">configural_fit</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/Configural.html">Configural</a></span><span class="op">(</span></span>
-<span>  data <span class="op">=</span> <span class="va">df</span>,</span>
-<span>  time_points <span class="op">=</span> <span class="va">time_points</span>,</span>
-<span>  factor_loadings <span class="op">=</span> <span class="va">factor_loadings</span>,</span>
-<span>  mimic <span class="op">=</span> <span class="st">"mplus"</span></span>
-<span><span class="op">)</span></span>
-<span><span class="fu">lavaan</span><span class="fu">::</span><span class="fu">summary</span><span class="op">(</span><span class="va">configural_fit</span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">mi</span><span class="op">)</span></span>
+<span><span class="co">#&gt; Call:</span></span>
+<span><span class="co">#&gt; Invariance(data = df, time_points = time_points, factor_loadings = factor_loadings, </span></span>
+<span><span class="co">#&gt;     mimic = "mplus")</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; CONFIGURAL INVARIANCE MODEL</span></span>
+<span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; lavaan 0.6.16 ended normally after 75 iterations</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt;   Estimator                                         ML</span></span>
@@ -247,12 +204,12 @@ and <code><a href="../reference/Strict.html">Strict()</a></code> functions.</p>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Latent Variables:</span></span>
 <span><span class="co">#&gt;                    Estimate  Std.Err  z-value  P(&gt;|z|)</span></span>
-<span><span class="co">#&gt;   t1f1 =~                                             </span></span>
+<span><span class="co">#&gt;   f1t1 =~                                             </span></span>
 <span><span class="co">#&gt;     y1_1     (l11)    4.451    0.400   11.137    0.000</span></span>
 <span><span class="co">#&gt;     y1_2              6.850    0.637   10.745    0.000</span></span>
 <span><span class="co">#&gt;     y1_3              4.590    0.520    8.821    0.000</span></span>
 <span><span class="co">#&gt;     y1_4              5.039    0.396   12.728    0.000</span></span>
-<span><span class="co">#&gt;   t6f1 =~                                             </span></span>
+<span><span class="co">#&gt;   f1t6 =~                                             </span></span>
 <span><span class="co">#&gt;     y6_1     (l11)    4.451    0.400   11.137    0.000</span></span>
 <span><span class="co">#&gt;     y6_2              4.006    0.489    8.194    0.000</span></span>
 <span><span class="co">#&gt;     y6_3              4.551    0.545    8.346    0.000</span></span>
@@ -260,8 +217,8 @@ and <code><a href="../reference/Strict.html">Strict()</a></code> functions.</p>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Covariances:</span></span>
 <span><span class="co">#&gt;                    Estimate  Std.Err  z-value  P(&gt;|z|)</span></span>
-<span><span class="co">#&gt;   t1f1 ~~                                             </span></span>
-<span><span class="co">#&gt;     t6f1              1.837    0.215    8.558    0.000</span></span>
+<span><span class="co">#&gt;   f1t1 ~~                                             </span></span>
+<span><span class="co">#&gt;     f1t6              1.837    0.215    8.558    0.000</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Intercepts:</span></span>
 <span><span class="co">#&gt;                    Estimate  Std.Err  z-value  P(&gt;|z|)</span></span>
@@ -273,8 +230,8 @@ and <code><a href="../reference/Strict.html">Strict()</a></code> functions.</p>
 <span><span class="co">#&gt;    .y6_2             19.317    2.299    8.404    0.000</span></span>
 <span><span class="co">#&gt;    .y6_3             11.922    2.516    4.738    0.000</span></span>
 <span><span class="co">#&gt;    .y6_4             17.970    1.844    9.747    0.000</span></span>
-<span><span class="co">#&gt;     t1f1              0.000                           </span></span>
-<span><span class="co">#&gt;     t6f1              6.455    0.606   10.649    0.000</span></span>
+<span><span class="co">#&gt;     f1t1              0.000                           </span></span>
+<span><span class="co">#&gt;     f1t6              6.455    0.606   10.649    0.000</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Variances:</span></span>
 <span><span class="co">#&gt;                    Estimate  Std.Err  z-value  P(&gt;|z|)</span></span>
@@ -286,15 +243,13 @@ and <code><a href="../reference/Strict.html">Strict()</a></code> functions.</p>
 <span><span class="co">#&gt;    .y6_2             73.850    8.388    8.805    0.000</span></span>
 <span><span class="co">#&gt;    .y6_3             88.920   10.354    8.588    0.000</span></span>
 <span><span class="co">#&gt;    .y6_4             23.267    4.182    5.564    0.000</span></span>
-<span><span class="co">#&gt;     t1f1              1.000                           </span></span>
-<span><span class="co">#&gt;     t6f1              5.834    1.167    4.997    0.000</span></span>
-<span><span class="va">weak_fit</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/Weak.html">Weak</a></span><span class="op">(</span></span>
-<span>  data <span class="op">=</span> <span class="va">df</span>,</span>
-<span>  time_points <span class="op">=</span> <span class="va">time_points</span>,</span>
-<span>  factor_loadings <span class="op">=</span> <span class="va">factor_loadings</span>,</span>
-<span>  mimic <span class="op">=</span> <span class="st">"mplus"</span></span>
-<span><span class="op">)</span></span>
-<span><span class="fu">lavaan</span><span class="fu">::</span><span class="fu">summary</span><span class="op">(</span><span class="va">weak_fit</span><span class="op">)</span></span>
+<span><span class="co">#&gt;     f1t1              1.000                           </span></span>
+<span><span class="co">#&gt;     f1t6              5.834    1.167    4.997    0.000</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; WEAK INVARIANCE MODEL</span></span>
+<span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; lavaan 0.6.16 ended normally after 54 iterations</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt;   Estimator                                         ML</span></span>
@@ -319,12 +274,12 @@ and <code><a href="../reference/Strict.html">Strict()</a></code> functions.</p>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Latent Variables:</span></span>
 <span><span class="co">#&gt;                    Estimate  Std.Err  z-value  P(&gt;|z|)</span></span>
-<span><span class="co">#&gt;   t1f1 =~                                             </span></span>
+<span><span class="co">#&gt;   f1t1 =~                                             </span></span>
 <span><span class="co">#&gt;     y1_1     (l11)    4.933    0.339   14.562    0.000</span></span>
 <span><span class="co">#&gt;     y1_2     (l12)    5.172    0.429   12.052    0.000</span></span>
 <span><span class="co">#&gt;     y1_3     (l13)    5.072    0.397   12.762    0.000</span></span>
 <span><span class="co">#&gt;     y1_4     (l14)    4.865    0.336   14.492    0.000</span></span>
-<span><span class="co">#&gt;   t6f1 =~                                             </span></span>
+<span><span class="co">#&gt;   f1t6 =~                                             </span></span>
 <span><span class="co">#&gt;     y6_1     (l11)    4.933    0.339   14.562    0.000</span></span>
 <span><span class="co">#&gt;     y6_2     (l12)    5.172    0.429   12.052    0.000</span></span>
 <span><span class="co">#&gt;     y6_3     (l13)    5.072    0.397   12.762    0.000</span></span>
@@ -332,8 +287,8 @@ and <code><a href="../reference/Strict.html">Strict()</a></code> functions.</p>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Covariances:</span></span>
 <span><span class="co">#&gt;                    Estimate  Std.Err  z-value  P(&gt;|z|)</span></span>
-<span><span class="co">#&gt;   t1f1 ~~                                             </span></span>
-<span><span class="co">#&gt;     t6f1              1.558    0.136   11.439    0.000</span></span>
+<span><span class="co">#&gt;   f1t1 ~~                                             </span></span>
+<span><span class="co">#&gt;     f1t6              1.558    0.136   11.439    0.000</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Intercepts:</span></span>
 <span><span class="co">#&gt;                    Estimate  Std.Err  z-value  P(&gt;|z|)</span></span>
@@ -345,8 +300,8 @@ and <code><a href="../reference/Strict.html">Strict()</a></code> functions.</p>
 <span><span class="co">#&gt;    .y6_2             15.049    2.299    6.547    0.000</span></span>
 <span><span class="co">#&gt;    .y6_3             11.756    2.212    5.315    0.000</span></span>
 <span><span class="co">#&gt;    .y6_4             16.111    1.765    9.130    0.000</span></span>
-<span><span class="co">#&gt;     t1f1              0.000                           </span></span>
-<span><span class="co">#&gt;     t6f1              5.824    0.429   13.591    0.000</span></span>
+<span><span class="co">#&gt;     f1t1              0.000                           </span></span>
+<span><span class="co">#&gt;     f1t6              5.824    0.429   13.591    0.000</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Variances:</span></span>
 <span><span class="co">#&gt;                    Estimate  Std.Err  z-value  P(&gt;|z|)</span></span>
@@ -358,15 +313,13 @@ and <code><a href="../reference/Strict.html">Strict()</a></code> functions.</p>
 <span><span class="co">#&gt;    .y6_2             72.254    8.353    8.650    0.000</span></span>
 <span><span class="co">#&gt;    .y6_3             91.610   10.487    8.736    0.000</span></span>
 <span><span class="co">#&gt;    .y6_4             22.022    4.032    5.462    0.000</span></span>
-<span><span class="co">#&gt;     t1f1              1.000                           </span></span>
-<span><span class="co">#&gt;     t6f1              4.240    0.546    7.759    0.000</span></span>
-<span><span class="va">strong_fit</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/Strong.html">Strong</a></span><span class="op">(</span></span>
-<span>  data <span class="op">=</span> <span class="va">df</span>,</span>
-<span>  time_points <span class="op">=</span> <span class="va">time_points</span>,</span>
-<span>  factor_loadings <span class="op">=</span> <span class="va">factor_loadings</span>,</span>
-<span>  mimic <span class="op">=</span> <span class="st">"mplus"</span></span>
-<span><span class="op">)</span></span>
-<span><span class="fu">lavaan</span><span class="fu">::</span><span class="fu">summary</span><span class="op">(</span><span class="va">strong_fit</span><span class="op">)</span></span>
+<span><span class="co">#&gt;     f1t1              1.000                           </span></span>
+<span><span class="co">#&gt;     f1t6              4.240    0.546    7.759    0.000</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; STRONG INVARIANCE MODEL</span></span>
+<span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; lavaan 0.6.16 ended normally after 52 iterations</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt;   Estimator                                         ML</span></span>
@@ -391,12 +344,12 @@ and <code><a href="../reference/Strict.html">Strict()</a></code> functions.</p>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Latent Variables:</span></span>
 <span><span class="co">#&gt;                    Estimate  Std.Err  z-value  P(&gt;|z|)</span></span>
-<span><span class="co">#&gt;   t1f1 =~                                             </span></span>
+<span><span class="co">#&gt;   f1t1 =~                                             </span></span>
 <span><span class="co">#&gt;     y1_1     (l11)    5.270    0.331   15.917    0.000</span></span>
 <span><span class="co">#&gt;     y1_2     (l12)    4.525    0.312   14.487    0.000</span></span>
 <span><span class="co">#&gt;     y1_3     (l13)    4.960    0.328   15.112    0.000</span></span>
 <span><span class="co">#&gt;     y1_4     (l14)    4.547    0.291   15.634    0.000</span></span>
-<span><span class="co">#&gt;   t6f1 =~                                             </span></span>
+<span><span class="co">#&gt;   f1t6 =~                                             </span></span>
 <span><span class="co">#&gt;     y6_1     (l11)    5.270    0.331   15.917    0.000</span></span>
 <span><span class="co">#&gt;     y6_2     (l12)    4.525    0.312   14.487    0.000</span></span>
 <span><span class="co">#&gt;     y6_3     (l13)    4.960    0.328   15.112    0.000</span></span>
@@ -404,8 +357,8 @@ and <code><a href="../reference/Strict.html">Strict()</a></code> functions.</p>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Covariances:</span></span>
 <span><span class="co">#&gt;                    Estimate  Std.Err  z-value  P(&gt;|z|)</span></span>
-<span><span class="co">#&gt;   t1f1 ~~                                             </span></span>
-<span><span class="co">#&gt;     t6f1              1.608    0.142   11.316    0.000</span></span>
+<span><span class="co">#&gt;   f1t1 ~~                                             </span></span>
+<span><span class="co">#&gt;     f1t6              1.608    0.142   11.316    0.000</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Intercepts:</span></span>
 <span><span class="co">#&gt;                    Estimate  Std.Err  z-value  P(&gt;|z|)</span></span>
@@ -417,8 +370,8 @@ and <code><a href="../reference/Strict.html">Strict()</a></code> functions.</p>
 <span><span class="co">#&gt;    .y6_2      (i2)   21.459    0.598   35.901    0.000</span></span>
 <span><span class="co">#&gt;    .y6_3      (i3)   14.882    0.529   28.146    0.000</span></span>
 <span><span class="co">#&gt;    .y6_4      (i4)   20.311    0.421   48.252    0.000</span></span>
-<span><span class="co">#&gt;     t1f1              0.000                           </span></span>
-<span><span class="co">#&gt;     t6f1              5.337    0.354   15.077    0.000</span></span>
+<span><span class="co">#&gt;     f1t1              0.000                           </span></span>
+<span><span class="co">#&gt;     f1t6              5.337    0.354   15.077    0.000</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Variances:</span></span>
 <span><span class="co">#&gt;                    Estimate  Std.Err  z-value  P(&gt;|z|)</span></span>
@@ -430,15 +383,13 @@ and <code><a href="../reference/Strict.html">Strict()</a></code> functions.</p>
 <span><span class="co">#&gt;    .y6_2             74.229    8.352    8.887    0.000</span></span>
 <span><span class="co">#&gt;    .y6_3             89.572   10.110    8.860    0.000</span></span>
 <span><span class="co">#&gt;    .y6_4             24.586    3.951    6.223    0.000</span></span>
-<span><span class="co">#&gt;     t1f1              1.000                           </span></span>
-<span><span class="co">#&gt;     t6f1              4.557    0.585    7.791    0.000</span></span>
-<span><span class="va">strict_fit</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/Strict.html">Strict</a></span><span class="op">(</span></span>
-<span>  data <span class="op">=</span> <span class="va">df</span>,</span>
-<span>  time_points <span class="op">=</span> <span class="va">time_points</span>,</span>
-<span>  factor_loadings <span class="op">=</span> <span class="va">factor_loadings</span>,</span>
-<span>  mimic <span class="op">=</span> <span class="st">"mplus"</span></span>
-<span><span class="op">)</span></span>
-<span><span class="fu">lavaan</span><span class="fu">::</span><span class="fu">summary</span><span class="op">(</span><span class="va">strict_fit</span><span class="op">)</span></span>
+<span><span class="co">#&gt;     f1t1              1.000                           </span></span>
+<span><span class="co">#&gt;     f1t6              4.557    0.585    7.791    0.000</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; STRICT INVARIANCE MODEL</span></span>
+<span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; lavaan 0.6.16 ended normally after 57 iterations</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt;   Estimator                                         ML</span></span>
@@ -463,12 +414,12 @@ and <code><a href="../reference/Strict.html">Strict()</a></code> functions.</p>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Latent Variables:</span></span>
 <span><span class="co">#&gt;                    Estimate  Std.Err  z-value  P(&gt;|z|)</span></span>
-<span><span class="co">#&gt;   t1f1 =~                                             </span></span>
+<span><span class="co">#&gt;   f1t1 =~                                             </span></span>
 <span><span class="co">#&gt;     y1_1     (l11)    5.083    0.364   13.978    0.000</span></span>
 <span><span class="co">#&gt;     y1_2     (l12)    4.309    0.333   12.944    0.000</span></span>
 <span><span class="co">#&gt;     y1_3     (l13)    4.785    0.356   13.447    0.000</span></span>
 <span><span class="co">#&gt;     y1_4     (l14)    4.358    0.317   13.765    0.000</span></span>
-<span><span class="co">#&gt;   t6f1 =~                                             </span></span>
+<span><span class="co">#&gt;   f1t6 =~                                             </span></span>
 <span><span class="co">#&gt;     y6_1     (l11)    5.083    0.364   13.978    0.000</span></span>
 <span><span class="co">#&gt;     y6_2     (l12)    4.309    0.333   12.944    0.000</span></span>
 <span><span class="co">#&gt;     y6_3     (l13)    4.785    0.356   13.447    0.000</span></span>
@@ -476,8 +427,8 @@ and <code><a href="../reference/Strict.html">Strict()</a></code> functions.</p>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Covariances:</span></span>
 <span><span class="co">#&gt;                    Estimate  Std.Err  z-value  P(&gt;|z|)</span></span>
-<span><span class="co">#&gt;   t1f1 ~~                                             </span></span>
-<span><span class="co">#&gt;     t6f1              1.812    0.168   10.812    0.000</span></span>
+<span><span class="co">#&gt;   f1t1 ~~                                             </span></span>
+<span><span class="co">#&gt;     f1t6              1.812    0.168   10.812    0.000</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Intercepts:</span></span>
 <span><span class="co">#&gt;                    Estimate  Std.Err  z-value  P(&gt;|z|)</span></span>
@@ -489,8 +440,8 @@ and <code><a href="../reference/Strict.html">Strict()</a></code> functions.</p>
 <span><span class="co">#&gt;    .y6_2      (i2)   21.513    0.621   34.648    0.000</span></span>
 <span><span class="co">#&gt;    .y6_3      (i3)   14.805    0.617   23.988    0.000</span></span>
 <span><span class="co">#&gt;    .y6_4      (i4)   20.313    0.433   46.915    0.000</span></span>
-<span><span class="co">#&gt;     t1f1              0.000                           </span></span>
-<span><span class="co">#&gt;     t6f1              5.557    0.415   13.396    0.000</span></span>
+<span><span class="co">#&gt;     f1t1              0.000                           </span></span>
+<span><span class="co">#&gt;     f1t6              5.557    0.415   13.396    0.000</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Variances:</span></span>
 <span><span class="co">#&gt;                    Estimate  Std.Err  z-value  P(&gt;|z|)</span></span>
@@ -502,13 +453,77 @@ and <code><a href="../reference/Strict.html">Strict()</a></code> functions.</p>
 <span><span class="co">#&gt;    .y6_2      (u2)   68.013    5.253   12.946    0.000</span></span>
 <span><span class="co">#&gt;    .y6_3      (u3)   61.387    4.897   12.535    0.000</span></span>
 <span><span class="co">#&gt;    .y6_4      (u4)   20.878    2.142    9.746    0.000</span></span>
-<span><span class="co">#&gt;     t1f1              1.000                           </span></span>
-<span><span class="co">#&gt;     t6f1              5.056    0.692    7.304    0.000</span></span></code></pre></div>
+<span><span class="co">#&gt;     f1t1              1.000                           </span></span>
+<span><span class="co">#&gt;     f1t6              5.056    0.692    7.304    0.000</span></span></code></pre></div>
+</div>
+<div class="section level2">
+<h2 id="fitting-the-models-one-at-a-time">Fitting the Models One at a Time<a class="anchor" aria-label="anchor" href="#fitting-the-models-one-at-a-time"></a>
+</h2>
+<p>The models can also be fitted one at a time using the
+<code><a href="../reference/Configural.html">Configural()</a></code>, <code><a href="../reference/Weak.html">Weak()</a></code>, <code><a href="../reference/Strong.html">Strong()</a></code>,
+and <code><a href="../reference/Strict.html">Strict()</a></code> functions.</p>
+<div class="section level3">
+<h3 id="model-fitting">Model Fitting<a class="anchor" aria-label="anchor" href="#model-fitting"></a>
+</h3>
+<div class="section level4">
+<h4 id="configural-invariance-model">Configural Invariance Model<a class="anchor" aria-label="anchor" href="#configural-invariance-model"></a>
+</h4>
+<p>In the configural invariance model, the factor structure is
+constrained to be equal across time points.</p>
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">configural_fit</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/Configural.html">Configural</a></span><span class="op">(</span></span>
+<span>  data <span class="op">=</span> <span class="va">df</span>,</span>
+<span>  time_points <span class="op">=</span> <span class="va">time_points</span>,</span>
+<span>  factor_loadings <span class="op">=</span> <span class="va">factor_loadings</span>,</span>
+<span>  mimic <span class="op">=</span> <span class="st">"mplus"</span></span>
+<span><span class="op">)</span></span></code></pre></div>
+</div>
+<div class="section level4">
+<h4 id="weak-invariance-model">Weak Invariance Model<a class="anchor" aria-label="anchor" href="#weak-invariance-model"></a>
+</h4>
+<p>In the weak invariance model, assuming configural invariance, the
+factor loadings are constrained to be equal across time points.</p>
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">weak_fit</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/Weak.html">Weak</a></span><span class="op">(</span></span>
+<span>  data <span class="op">=</span> <span class="va">df</span>,</span>
+<span>  time_points <span class="op">=</span> <span class="va">time_points</span>,</span>
+<span>  factor_loadings <span class="op">=</span> <span class="va">factor_loadings</span>,</span>
+<span>  mimic <span class="op">=</span> <span class="st">"mplus"</span></span>
+<span><span class="op">)</span></span></code></pre></div>
+</div>
+<div class="section level4">
+<h4 id="strong-invariance-model">Strong Invariance Model<a class="anchor" aria-label="anchor" href="#strong-invariance-model"></a>
+</h4>
+<p>In the strong invariance model, assuming weak invariance, the
+measurement intercepts are constrained to be equal across time
+points.</p>
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">strong_fit</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/Strong.html">Strong</a></span><span class="op">(</span></span>
+<span>  data <span class="op">=</span> <span class="va">df</span>,</span>
+<span>  time_points <span class="op">=</span> <span class="va">time_points</span>,</span>
+<span>  factor_loadings <span class="op">=</span> <span class="va">factor_loadings</span>,</span>
+<span>  mimic <span class="op">=</span> <span class="st">"mplus"</span></span>
+<span><span class="op">)</span></span></code></pre></div>
+</div>
+<div class="section level4">
+<h4 id="strict-invariance-model">Strict Invariance Model<a class="anchor" aria-label="anchor" href="#strict-invariance-model"></a>
+</h4>
+<p>In the strict invariance model, assuming strong invariance, the
+measurement error variances are constrained to be equal across time
+points.</p>
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">strict_fit</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/Strict.html">Strict</a></span><span class="op">(</span></span>
+<span>  data <span class="op">=</span> <span class="va">df</span>,</span>
+<span>  time_points <span class="op">=</span> <span class="va">time_points</span>,</span>
+<span>  factor_loadings <span class="op">=</span> <span class="va">factor_loadings</span>,</span>
+<span>  mimic <span class="op">=</span> <span class="st">"mplus"</span></span>
+<span><span class="op">)</span></span></code></pre></div>
+</div>
 </div>
 <div class="section level3">
 <h3 id="model-comparisons">Model Comparisons<a class="anchor" aria-label="anchor" href="#model-comparisons"></a>
 </h3>
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">mi</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/Comparison.html">Comparison</a></span><span class="op">(</span></span>
 <span>  configural <span class="op">=</span> <span class="va">configural_fit</span>,</span>
 <span>  weak <span class="op">=</span> <span class="va">weak_fit</span>,</span>
@@ -516,75 +531,325 @@ and <code><a href="../reference/Strict.html">Strict()</a></code> functions.</p>
 <span>  strict <span class="op">=</span> <span class="va">strict_fit</span></span>
 <span><span class="op">)</span></span></code></pre></div>
 <p>Fit Measures</p>
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">mi</span></span>
+<span><span class="co">#&gt; Call:</span></span>
+<span><span class="co">#&gt; Comparison(configural = configural_fit, weak = weak_fit, strong = strong_fit, </span></span>
+<span><span class="co">#&gt;     strict = strict_fit)</span></span>
 <span><span class="co">#&gt;               chisq df pvalue    cfi    tli  rmsea   srmr      aic      bic</span></span>
 <span><span class="co">#&gt; configural  25.9682 19 0.1311 0.9915 0.9875 0.0424 0.0306 11252.23 11335.18</span></span>
 <span><span class="co">#&gt; weak        41.8973 22 0.0064 0.9757 0.9691 0.0666 0.0763 11262.16 11335.16</span></span>
 <span><span class="co">#&gt; strong      53.7228 25 0.0007 0.9650 0.9608 0.0750 0.0872 11267.98 11331.03</span></span>
 <span><span class="co">#&gt; strict     134.5591 29 0.0000 0.8712 0.8757 0.1336 0.1690 11340.82 11390.59</span></span></code></pre></div>
-<p>Likelihood Ratio Tests</p>
-<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">mi</span><span class="op">)</span></span>
-<span><span class="co">#&gt; $`configural against weak`</span></span>
+<p>Chi-square Difference Tests</p>
+<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/anova.html" class="external-link">anova</a></span><span class="op">(</span><span class="va">mi</span><span class="op">)</span></span>
+<span><span class="co">#&gt; Call:</span></span>
+<span><span class="co">#&gt; Comparison(configural = configural_fit, weak = weak_fit, strong = strong_fit, </span></span>
+<span><span class="co">#&gt;     strict = strict_fit)</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Chi-Squared Difference Test</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt;            Df   AIC   BIC  Chisq Chisq diff   RMSEA Df diff Pr(&gt;Chisq)   </span></span>
-<span><span class="co">#&gt; configural 19 11252 11335 25.968                                         </span></span>
-<span><span class="co">#&gt; weak       22 11262 11335 41.897     15.929 0.14535       3   0.001173 **</span></span>
-<span><span class="co">#&gt; ---</span></span>
-<span><span class="co">#&gt; Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $`configural against strong`</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Chi-Squared Difference Test</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt;            Df   AIC   BIC  Chisq Chisq diff   RMSEA Df diff Pr(&gt;Chisq)    </span></span>
-<span><span class="co">#&gt; configural 19 11252 11335 25.968                                          </span></span>
-<span><span class="co">#&gt; strong     25 11268 11331 53.723     27.755 0.13332       6  0.0001045 ***</span></span>
-<span><span class="co">#&gt; ---</span></span>
-<span><span class="co">#&gt; Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $`configural against strict`</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Chi-Squared Difference Test</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt;            Df   AIC   BIC   Chisq Chisq diff   RMSEA Df diff Pr(&gt;Chisq)    </span></span>
-<span><span class="co">#&gt; configural 19 11252 11335  25.968                                          </span></span>
-<span><span class="co">#&gt; strict     29 11341 11391 134.559     108.59 0.21984      10  &lt; 2.2e-16 ***</span></span>
-<span><span class="co">#&gt; ---</span></span>
-<span><span class="co">#&gt; Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $`weak against strong`</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Chi-Squared Difference Test</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt;        Df   AIC   BIC  Chisq Chisq diff   RMSEA Df diff Pr(&gt;Chisq)   </span></span>
-<span><span class="co">#&gt; weak   22 11262 11335 41.897                                         </span></span>
-<span><span class="co">#&gt; strong 25 11268 11331 53.723     11.826 0.12009       3   0.008005 **</span></span>
-<span><span class="co">#&gt; ---</span></span>
-<span><span class="co">#&gt; Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $`weak against strict`</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Chi-Squared Difference Test</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt;        Df   AIC   BIC   Chisq Chisq diff   RMSEA Df diff Pr(&gt;Chisq)    </span></span>
-<span><span class="co">#&gt; weak   22 11262 11335  41.897                                          </span></span>
-<span><span class="co">#&gt; strict 29 11341 11391 134.559     92.662 0.24492       7  &lt; 2.2e-16 ***</span></span>
-<span><span class="co">#&gt; ---</span></span>
-<span><span class="co">#&gt; Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $`strong against strict`</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Chi-Squared Difference Test</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt;        Df   AIC   BIC   Chisq Chisq diff   RMSEA Df diff Pr(&gt;Chisq)    </span></span>
-<span><span class="co">#&gt; strong 25 11268 11331  53.723                                          </span></span>
-<span><span class="co">#&gt; strict 29 11341 11391 134.559     80.836 0.30686       4  &lt; 2.2e-16 ***</span></span>
+<span><span class="co">#&gt;              Df   AIC   BIC   Chisq Chisq diff   RMSEA Df diff Pr(&gt;Chisq)    </span></span>
+<span><span class="co">#&gt; 1.configural 19 11252 11335  25.968                                          </span></span>
+<span><span class="co">#&gt; 1.weak       22 11262 11335  41.897     15.929 0.14535       3  0.0011726 ** </span></span>
+<span><span class="co">#&gt; 2.configural 19 11252 11335  25.968                                          </span></span>
+<span><span class="co">#&gt; 2.strong     25 11268 11331  53.723     27.755 0.13332       6  0.0001045 ***</span></span>
+<span><span class="co">#&gt; 3.configural 19 11252 11335  25.968                                          </span></span>
+<span><span class="co">#&gt; 3.strict     29 11341 11391 134.559    108.591 0.21984      10  &lt; 2.2e-16 ***</span></span>
+<span><span class="co">#&gt; 4.weak       22 11262 11335  41.897                                          </span></span>
+<span><span class="co">#&gt; 4.strong     25 11268 11331  53.723     11.826 0.12009       3  0.0080053 ** </span></span>
+<span><span class="co">#&gt; 5.weak       22 11262 11335  41.897                                          </span></span>
+<span><span class="co">#&gt; 5.strict     29 11341 11391 134.559     92.662 0.24492       7  &lt; 2.2e-16 ***</span></span>
+<span><span class="co">#&gt; 6.strong     25 11268 11331  53.723                                          </span></span>
+<span><span class="co">#&gt; 6.strict     29 11341 11391 134.559     80.836 0.30686       4  &lt; 2.2e-16 ***</span></span>
 <span><span class="co">#&gt; ---</span></span>
 <span><span class="co">#&gt; Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</span></span></code></pre></div>
+<p>Summary of the fitted models</p>
+<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">mi</span><span class="op">)</span></span>
+<span><span class="co">#&gt; Call:</span></span>
+<span><span class="co">#&gt; Comparison(configural = configural_fit, weak = weak_fit, strong = strong_fit, </span></span>
+<span><span class="co">#&gt;     strict = strict_fit)</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; CONFIGURAL INVARIANCE MODEL</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; lavaan 0.6.16 ended normally after 75 iterations</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;   Estimator                                         ML</span></span>
+<span><span class="co">#&gt;   Optimization method                           NLMINB</span></span>
+<span><span class="co">#&gt;   Number of model parameters                        27</span></span>
+<span><span class="co">#&gt;   Number of equality constraints                     2</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;   Number of observations                           204</span></span>
+<span><span class="co">#&gt;   Number of missing patterns                         1</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Model Test User Model:</span></span>
+<span><span class="co">#&gt;                                                       </span></span>
+<span><span class="co">#&gt;   Test statistic                                25.968</span></span>
+<span><span class="co">#&gt;   Degrees of freedom                                19</span></span>
+<span><span class="co">#&gt;   P-value (Chi-square)                           0.131</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Parameter Estimates:</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;   Standard errors                             Standard</span></span>
+<span><span class="co">#&gt;   Information                                 Observed</span></span>
+<span><span class="co">#&gt;   Observed information based on                Hessian</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Latent Variables:</span></span>
+<span><span class="co">#&gt;                    Estimate  Std.Err  z-value  P(&gt;|z|)</span></span>
+<span><span class="co">#&gt;   f1t1 =~                                             </span></span>
+<span><span class="co">#&gt;     y1_1     (l11)    4.451    0.400   11.137    0.000</span></span>
+<span><span class="co">#&gt;     y1_2              6.850    0.637   10.745    0.000</span></span>
+<span><span class="co">#&gt;     y1_3              4.590    0.520    8.821    0.000</span></span>
+<span><span class="co">#&gt;     y1_4              5.039    0.396   12.728    0.000</span></span>
+<span><span class="co">#&gt;   f1t6 =~                                             </span></span>
+<span><span class="co">#&gt;     y6_1     (l11)    4.451    0.400   11.137    0.000</span></span>
+<span><span class="co">#&gt;     y6_2              4.006    0.489    8.194    0.000</span></span>
+<span><span class="co">#&gt;     y6_3              4.551    0.545    8.346    0.000</span></span>
+<span><span class="co">#&gt;     y6_4              4.102    0.453    9.057    0.000</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Covariances:</span></span>
+<span><span class="co">#&gt;                    Estimate  Std.Err  z-value  P(&gt;|z|)</span></span>
+<span><span class="co">#&gt;   f1t1 ~~                                             </span></span>
+<span><span class="co">#&gt;     f1t6              1.837    0.215    8.558    0.000</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Intercepts:</span></span>
+<span><span class="co">#&gt;                    Estimate  Std.Err  z-value  P(&gt;|z|)</span></span>
+<span><span class="co">#&gt;    .y1_1      (i1)   19.776    0.427   46.273    0.000</span></span>
+<span><span class="co">#&gt;    .y1_2             21.797    0.680   32.036    0.000</span></span>
+<span><span class="co">#&gt;    .y1_3             14.903    0.528   28.223    0.000</span></span>
+<span><span class="co">#&gt;    .y1_4             20.396    0.439   46.416    0.000</span></span>
+<span><span class="co">#&gt;    .y6_1      (i1)   19.776    0.427   46.273    0.000</span></span>
+<span><span class="co">#&gt;    .y6_2             19.317    2.299    8.404    0.000</span></span>
+<span><span class="co">#&gt;    .y6_3             11.922    2.516    4.738    0.000</span></span>
+<span><span class="co">#&gt;    .y6_4             17.970    1.844    9.747    0.000</span></span>
+<span><span class="co">#&gt;     f1t1              0.000                           </span></span>
+<span><span class="co">#&gt;     f1t6              6.455    0.606   10.649    0.000</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Variances:</span></span>
+<span><span class="co">#&gt;                    Estimate  Std.Err  z-value  P(&gt;|z|)</span></span>
+<span><span class="co">#&gt;    .y1_1             17.448    2.240    7.789    0.000</span></span>
+<span><span class="co">#&gt;    .y1_2             47.511    5.754    8.257    0.000</span></span>
+<span><span class="co">#&gt;    .y1_3             35.810    4.031    8.884    0.000</span></span>
+<span><span class="co">#&gt;    .y1_4             13.999    2.133    6.563    0.000</span></span>
+<span><span class="co">#&gt;    .y6_1             47.096    6.432    7.322    0.000</span></span>
+<span><span class="co">#&gt;    .y6_2             73.850    8.388    8.805    0.000</span></span>
+<span><span class="co">#&gt;    .y6_3             88.920   10.354    8.588    0.000</span></span>
+<span><span class="co">#&gt;    .y6_4             23.267    4.182    5.564    0.000</span></span>
+<span><span class="co">#&gt;     f1t1              1.000                           </span></span>
+<span><span class="co">#&gt;     f1t6              5.834    1.167    4.997    0.000</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; WEAK INVARIANCE MODEL</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; lavaan 0.6.16 ended normally after 54 iterations</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;   Estimator                                         ML</span></span>
+<span><span class="co">#&gt;   Optimization method                           NLMINB</span></span>
+<span><span class="co">#&gt;   Number of model parameters                        27</span></span>
+<span><span class="co">#&gt;   Number of equality constraints                     5</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;   Number of observations                           204</span></span>
+<span><span class="co">#&gt;   Number of missing patterns                         1</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Model Test User Model:</span></span>
+<span><span class="co">#&gt;                                                       </span></span>
+<span><span class="co">#&gt;   Test statistic                                41.897</span></span>
+<span><span class="co">#&gt;   Degrees of freedom                                22</span></span>
+<span><span class="co">#&gt;   P-value (Chi-square)                           0.006</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Parameter Estimates:</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;   Standard errors                             Standard</span></span>
+<span><span class="co">#&gt;   Information                                 Observed</span></span>
+<span><span class="co">#&gt;   Observed information based on                Hessian</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Latent Variables:</span></span>
+<span><span class="co">#&gt;                    Estimate  Std.Err  z-value  P(&gt;|z|)</span></span>
+<span><span class="co">#&gt;   f1t1 =~                                             </span></span>
+<span><span class="co">#&gt;     y1_1     (l11)    4.933    0.339   14.562    0.000</span></span>
+<span><span class="co">#&gt;     y1_2     (l12)    5.172    0.429   12.052    0.000</span></span>
+<span><span class="co">#&gt;     y1_3     (l13)    5.072    0.397   12.762    0.000</span></span>
+<span><span class="co">#&gt;     y1_4     (l14)    4.865    0.336   14.492    0.000</span></span>
+<span><span class="co">#&gt;   f1t6 =~                                             </span></span>
+<span><span class="co">#&gt;     y6_1     (l11)    4.933    0.339   14.562    0.000</span></span>
+<span><span class="co">#&gt;     y6_2     (l12)    5.172    0.429   12.052    0.000</span></span>
+<span><span class="co">#&gt;     y6_3     (l13)    5.072    0.397   12.762    0.000</span></span>
+<span><span class="co">#&gt;     y6_4     (l14)    4.865    0.336   14.492    0.000</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Covariances:</span></span>
+<span><span class="co">#&gt;                    Estimate  Std.Err  z-value  P(&gt;|z|)</span></span>
+<span><span class="co">#&gt;   f1t1 ~~                                             </span></span>
+<span><span class="co">#&gt;     f1t6              1.558    0.136   11.439    0.000</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Intercepts:</span></span>
+<span><span class="co">#&gt;                    Estimate  Std.Err  z-value  P(&gt;|z|)</span></span>
+<span><span class="co">#&gt;    .y1_1      (i1)   19.776    0.445   44.430    0.000</span></span>
+<span><span class="co">#&gt;    .y1_2             21.797    0.629   34.633    0.000</span></span>
+<span><span class="co">#&gt;    .y1_3             14.903    0.544   27.411    0.000</span></span>
+<span><span class="co">#&gt;    .y1_4             20.396    0.436   46.803    0.000</span></span>
+<span><span class="co">#&gt;    .y6_1      (i1)   19.776    0.445   44.430    0.000</span></span>
+<span><span class="co">#&gt;    .y6_2             15.049    2.299    6.547    0.000</span></span>
+<span><span class="co">#&gt;    .y6_3             11.756    2.212    5.315    0.000</span></span>
+<span><span class="co">#&gt;    .y6_4             16.111    1.765    9.130    0.000</span></span>
+<span><span class="co">#&gt;     f1t1              0.000                           </span></span>
+<span><span class="co">#&gt;     f1t6              5.824    0.429   13.591    0.000</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Variances:</span></span>
+<span><span class="co">#&gt;                    Estimate  Std.Err  z-value  P(&gt;|z|)</span></span>
+<span><span class="co">#&gt;    .y1_1             16.079    2.188    7.349    0.000</span></span>
+<span><span class="co">#&gt;    .y1_2             54.055    6.012    8.992    0.000</span></span>
+<span><span class="co">#&gt;    .y1_3             34.578    3.941    8.775    0.000</span></span>
+<span><span class="co">#&gt;    .y1_4             15.075    2.109    7.149    0.000</span></span>
+<span><span class="co">#&gt;    .y6_1             49.748    6.494    7.661    0.000</span></span>
+<span><span class="co">#&gt;    .y6_2             72.254    8.353    8.650    0.000</span></span>
+<span><span class="co">#&gt;    .y6_3             91.610   10.487    8.736    0.000</span></span>
+<span><span class="co">#&gt;    .y6_4             22.022    4.032    5.462    0.000</span></span>
+<span><span class="co">#&gt;     f1t1              1.000                           </span></span>
+<span><span class="co">#&gt;     f1t6              4.240    0.546    7.759    0.000</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; STRONG INVARIANCE MODEL</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; lavaan 0.6.16 ended normally after 52 iterations</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;   Estimator                                         ML</span></span>
+<span><span class="co">#&gt;   Optimization method                           NLMINB</span></span>
+<span><span class="co">#&gt;   Number of model parameters                        27</span></span>
+<span><span class="co">#&gt;   Number of equality constraints                     8</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;   Number of observations                           204</span></span>
+<span><span class="co">#&gt;   Number of missing patterns                         1</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Model Test User Model:</span></span>
+<span><span class="co">#&gt;                                                       </span></span>
+<span><span class="co">#&gt;   Test statistic                                53.723</span></span>
+<span><span class="co">#&gt;   Degrees of freedom                                25</span></span>
+<span><span class="co">#&gt;   P-value (Chi-square)                           0.001</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Parameter Estimates:</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;   Standard errors                             Standard</span></span>
+<span><span class="co">#&gt;   Information                                 Observed</span></span>
+<span><span class="co">#&gt;   Observed information based on                Hessian</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Latent Variables:</span></span>
+<span><span class="co">#&gt;                    Estimate  Std.Err  z-value  P(&gt;|z|)</span></span>
+<span><span class="co">#&gt;   f1t1 =~                                             </span></span>
+<span><span class="co">#&gt;     y1_1     (l11)    5.270    0.331   15.917    0.000</span></span>
+<span><span class="co">#&gt;     y1_2     (l12)    4.525    0.312   14.487    0.000</span></span>
+<span><span class="co">#&gt;     y1_3     (l13)    4.960    0.328   15.112    0.000</span></span>
+<span><span class="co">#&gt;     y1_4     (l14)    4.547    0.291   15.634    0.000</span></span>
+<span><span class="co">#&gt;   f1t6 =~                                             </span></span>
+<span><span class="co">#&gt;     y6_1     (l11)    5.270    0.331   15.917    0.000</span></span>
+<span><span class="co">#&gt;     y6_2     (l12)    4.525    0.312   14.487    0.000</span></span>
+<span><span class="co">#&gt;     y6_3     (l13)    4.960    0.328   15.112    0.000</span></span>
+<span><span class="co">#&gt;     y6_4     (l14)    4.547    0.291   15.634    0.000</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Covariances:</span></span>
+<span><span class="co">#&gt;                    Estimate  Std.Err  z-value  P(&gt;|z|)</span></span>
+<span><span class="co">#&gt;   f1t1 ~~                                             </span></span>
+<span><span class="co">#&gt;     f1t6              1.608    0.142   11.316    0.000</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Intercepts:</span></span>
+<span><span class="co">#&gt;                    Estimate  Std.Err  z-value  P(&gt;|z|)</span></span>
+<span><span class="co">#&gt;    .y1_1      (i1)   19.929    0.457   43.623    0.000</span></span>
+<span><span class="co">#&gt;    .y1_2      (i2)   21.459    0.598   35.901    0.000</span></span>
+<span><span class="co">#&gt;    .y1_3      (i3)   14.882    0.529   28.146    0.000</span></span>
+<span><span class="co">#&gt;    .y1_4      (i4)   20.311    0.421   48.252    0.000</span></span>
+<span><span class="co">#&gt;    .y6_1      (i1)   19.929    0.457   43.623    0.000</span></span>
+<span><span class="co">#&gt;    .y6_2      (i2)   21.459    0.598   35.901    0.000</span></span>
+<span><span class="co">#&gt;    .y6_3      (i3)   14.882    0.529   28.146    0.000</span></span>
+<span><span class="co">#&gt;    .y6_4      (i4)   20.311    0.421   48.252    0.000</span></span>
+<span><span class="co">#&gt;     f1t1              0.000                           </span></span>
+<span><span class="co">#&gt;     f1t6              5.337    0.354   15.077    0.000</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Variances:</span></span>
+<span><span class="co">#&gt;                    Estimate  Std.Err  z-value  P(&gt;|z|)</span></span>
+<span><span class="co">#&gt;    .y1_1             15.124    2.238    6.757    0.000</span></span>
+<span><span class="co">#&gt;    .y1_2             57.819    6.150    9.402    0.000</span></span>
+<span><span class="co">#&gt;    .y1_3             34.209    3.869    8.841    0.000</span></span>
+<span><span class="co">#&gt;    .y1_4             16.339    2.114    7.729    0.000</span></span>
+<span><span class="co">#&gt;    .y6_1             45.360    6.338    7.157    0.000</span></span>
+<span><span class="co">#&gt;    .y6_2             74.229    8.352    8.887    0.000</span></span>
+<span><span class="co">#&gt;    .y6_3             89.572   10.110    8.860    0.000</span></span>
+<span><span class="co">#&gt;    .y6_4             24.586    3.951    6.223    0.000</span></span>
+<span><span class="co">#&gt;     f1t1              1.000                           </span></span>
+<span><span class="co">#&gt;     f1t6              4.557    0.585    7.791    0.000</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; STRICT INVARIANCE MODEL</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; lavaan 0.6.16 ended normally after 57 iterations</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;   Estimator                                         ML</span></span>
+<span><span class="co">#&gt;   Optimization method                           NLMINB</span></span>
+<span><span class="co">#&gt;   Number of model parameters                        27</span></span>
+<span><span class="co">#&gt;   Number of equality constraints                    12</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;   Number of observations                           204</span></span>
+<span><span class="co">#&gt;   Number of missing patterns                         1</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Model Test User Model:</span></span>
+<span><span class="co">#&gt;                                                       </span></span>
+<span><span class="co">#&gt;   Test statistic                               134.559</span></span>
+<span><span class="co">#&gt;   Degrees of freedom                                29</span></span>
+<span><span class="co">#&gt;   P-value (Chi-square)                           0.000</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Parameter Estimates:</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;   Standard errors                             Standard</span></span>
+<span><span class="co">#&gt;   Information                                 Observed</span></span>
+<span><span class="co">#&gt;   Observed information based on                Hessian</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Latent Variables:</span></span>
+<span><span class="co">#&gt;                    Estimate  Std.Err  z-value  P(&gt;|z|)</span></span>
+<span><span class="co">#&gt;   f1t1 =~                                             </span></span>
+<span><span class="co">#&gt;     y1_1     (l11)    5.083    0.364   13.978    0.000</span></span>
+<span><span class="co">#&gt;     y1_2     (l12)    4.309    0.333   12.944    0.000</span></span>
+<span><span class="co">#&gt;     y1_3     (l13)    4.785    0.356   13.447    0.000</span></span>
+<span><span class="co">#&gt;     y1_4     (l14)    4.358    0.317   13.765    0.000</span></span>
+<span><span class="co">#&gt;   f1t6 =~                                             </span></span>
+<span><span class="co">#&gt;     y6_1     (l11)    5.083    0.364   13.978    0.000</span></span>
+<span><span class="co">#&gt;     y6_2     (l12)    4.309    0.333   12.944    0.000</span></span>
+<span><span class="co">#&gt;     y6_3     (l13)    4.785    0.356   13.447    0.000</span></span>
+<span><span class="co">#&gt;     y6_4     (l14)    4.358    0.317   13.765    0.000</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Covariances:</span></span>
+<span><span class="co">#&gt;                    Estimate  Std.Err  z-value  P(&gt;|z|)</span></span>
+<span><span class="co">#&gt;   f1t1 ~~                                             </span></span>
+<span><span class="co">#&gt;     f1t6              1.812    0.168   10.812    0.000</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Intercepts:</span></span>
+<span><span class="co">#&gt;                    Estimate  Std.Err  z-value  P(&gt;|z|)</span></span>
+<span><span class="co">#&gt;    .y1_1      (i1)   20.019    0.509   39.339    0.000</span></span>
+<span><span class="co">#&gt;    .y1_2      (i2)   21.513    0.621   34.648    0.000</span></span>
+<span><span class="co">#&gt;    .y1_3      (i3)   14.805    0.617   23.988    0.000</span></span>
+<span><span class="co">#&gt;    .y1_4      (i4)   20.313    0.433   46.915    0.000</span></span>
+<span><span class="co">#&gt;    .y6_1      (i1)   20.019    0.509   39.339    0.000</span></span>
+<span><span class="co">#&gt;    .y6_2      (i2)   21.513    0.621   34.648    0.000</span></span>
+<span><span class="co">#&gt;    .y6_3      (i3)   14.805    0.617   23.988    0.000</span></span>
+<span><span class="co">#&gt;    .y6_4      (i4)   20.313    0.433   46.915    0.000</span></span>
+<span><span class="co">#&gt;     f1t1              0.000                           </span></span>
+<span><span class="co">#&gt;     f1t6              5.557    0.415   13.396    0.000</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Variances:</span></span>
+<span><span class="co">#&gt;                    Estimate  Std.Err  z-value  P(&gt;|z|)</span></span>
+<span><span class="co">#&gt;    .y1_1      (u1)   28.657    2.958    9.689    0.000</span></span>
+<span><span class="co">#&gt;    .y1_2      (u2)   68.013    5.253   12.946    0.000</span></span>
+<span><span class="co">#&gt;    .y1_3      (u3)   61.387    4.897   12.535    0.000</span></span>
+<span><span class="co">#&gt;    .y1_4      (u4)   20.878    2.142    9.746    0.000</span></span>
+<span><span class="co">#&gt;    .y6_1      (u1)   28.657    2.958    9.689    0.000</span></span>
+<span><span class="co">#&gt;    .y6_2      (u2)   68.013    5.253   12.946    0.000</span></span>
+<span><span class="co">#&gt;    .y6_3      (u3)   61.387    4.897   12.535    0.000</span></span>
+<span><span class="co">#&gt;    .y6_4      (u4)   20.878    2.142    9.746    0.000</span></span>
+<span><span class="co">#&gt;     f1t1              1.000                           </span></span>
+<span><span class="co">#&gt;     f1t6              5.056    0.692    7.304    0.000</span></span></code></pre></div>
 </div>
 </div>
 <div class="section level2 unnumbered">

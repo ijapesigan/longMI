@@ -103,6 +103,12 @@ model the covariances of the measurement error.</p></dd>
 
 </dl></div>
     <div class="section level2">
+    <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
+    
+
+<p>Returns a fitted <code>lavaan</code> object.</p>
+    </div>
+    <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
     <div class="dont-index"><p>Other Longitudinal Measurement Invariance Functions: 
 <code><a href="Comparison.html">Comparison</a>()</code>,
@@ -151,12 +157,12 @@ model the covariances of the measurement error.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Latent Variables:</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                    Estimate  Std.Err  z-value  P(&gt;|z|)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   t1f1 =~                                             </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   f1t1 =~                                             </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     y1_1     (l11)    5.083    0.364   13.968    0.000</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     y1_2     (l12)    4.309    0.325   13.248    0.000</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     y1_3     (l13)    4.785    0.354   13.521    0.000</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     y1_4     (l14)    4.358    0.312   13.971    0.000</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   t6f1 =~                                             </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   f1t6 =~                                             </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     y6_1     (l11)    5.083    0.364   13.968    0.000</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     y6_2     (l12)    4.309    0.325   13.248    0.000</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     y6_3     (l13)    4.785    0.354   13.521    0.000</span>
@@ -164,8 +170,8 @@ model the covariances of the measurement error.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Covariances:</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                    Estimate  Std.Err  z-value  P(&gt;|z|)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   t1f1 ~~                                             </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     t6f1              1.812    0.168   10.790    0.000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   f1t1 ~~                                             </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     f1t6              1.812    0.168   10.790    0.000</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Intercepts:</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                    Estimate  Std.Err  z-value  P(&gt;|z|)</span>
@@ -177,8 +183,8 @@ model the covariances of the measurement error.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    .y6_2      (i2)   21.513    0.621   34.617    0.000</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    .y6_3      (i3)   14.805    0.617   24.001    0.000</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    .y6_4      (i4)   20.313    0.433   46.903    0.000</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     t1f1              0.000                           </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     t6f1              5.557    0.411   13.526    0.000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     f1t1              0.000                           </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     f1t6              5.557    0.411   13.526    0.000</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Variances:</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                    Estimate  Std.Err  z-value  P(&gt;|z|)</span>
@@ -190,8 +196,8 @@ model the covariances of the measurement error.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    .y6_2      (u2)   68.013    5.170   13.155    0.000</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    .y6_3      (u3)   61.387    4.821   12.734    0.000</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    .y6_4      (u4)   20.878    2.008   10.398    0.000</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     t1f1              1.000                           </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     t6f1              5.056    0.685    7.378    0.000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     f1t1              1.000                           </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     f1t6              5.056    0.685    7.378    0.000</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 </code></pre></div>
     </div>
