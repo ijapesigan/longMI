@@ -23,6 +23,8 @@ using the `longMI` package.
 library(longMI)
 ```
 
+## Data
+
 
 
 
@@ -42,8 +44,6 @@ head(df)
 #> 6  6 15.402 23.399 11.453 20.560 46.437 52.956 22.537 47.716
 ```
 
-## Data
-
 The package assumes that the data is in the wide format
 and the variables are named as follows:
 `paste0("y", time_point, "_", item_number)`.
@@ -57,7 +57,7 @@ similarities (`y1_3` and `y6_3`), and
 vocabulary (`y1_4` and `y6_4`)
 components of the Wechsler Intelligence Scale for Children
 [@Osborne-Suddick-1972].
-We can use this information to specify the funtion arguments to be used later
+We can use this information to specify the function arguments to be used later
 as follows:
 
 
