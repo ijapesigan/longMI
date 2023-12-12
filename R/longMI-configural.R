@@ -4,6 +4,7 @@
 #'
 #' @inheritParams Invariance
 #' @param model_add Additional specification added to the lavaan model syntax.
+#' @return Returns a fitted `lavaan` object.
 #' @examples
 #' data("osbornesudick1972", package = "longMI")
 #' configural_fit <- Configural(

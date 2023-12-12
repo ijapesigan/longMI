@@ -35,6 +35,9 @@ model the covariances of the measurement error.}
 
 \item{...}{Additional arguments to pass to \code{\link[lavaan:cfa]{lavaan::cfa()}}.}
 }
+\value{
+Returns a fitted \code{lavaan} object.
+}
 \description{
 Configural Invariance Model
 }

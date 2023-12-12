@@ -96,7 +96,13 @@ Fit Measures
 mi
 ```
 
-Likelihood Ratio Tests
+Chi-square Difference Tests
+
+```{r}
+anova(mi)
+```
+
+Summary of the fitted models
 
 ```{r}
 summary(mi)
@@ -112,6 +118,11 @@ The models can also be fitted one at a time using the
 
 ### Model Fitting
 
+#### Configural Invariance Model
+
+In the configural invariance model,
+the factor structure is constrained to be equal across time points.
+
 ```{r}
 configural_fit <- Configural(
   data = df,
@@ -119,28 +130,51 @@ configural_fit <- Configural(
   factor_loadings = factor_loadings,
   mimic = "mplus"
 )
-lavaan::summary(configural_fit)
+```
+
+#### Weak Invariance Model
+
+In the weak invariance model,
+assuming configural invariance,
+the factor loadings are constrained to be equal across time points.
+
+```{r}
 weak_fit <- Weak(
   data = df,
   time_points = time_points,
   factor_loadings = factor_loadings,
   mimic = "mplus"
 )
-lavaan::summary(weak_fit)
+```
+
+#### Strong Invariance Model
+
+In the strong invariance model,
+assuming weak invariance,
+the measurement intercepts are constrained to be equal across time points.
+
+```{r}
 strong_fit <- Strong(
   data = df,
   time_points = time_points,
   factor_loadings = factor_loadings,
   mimic = "mplus"
 )
-lavaan::summary(strong_fit)
+```
+
+#### Strict Invariance Model
+
+In the strict invariance model,
+assuming strong invariance,
+the measurement error variances are constrained to be equal across time points.
+
+```{r}
 strict_fit <- Strict(
   data = df,
   time_points = time_points,
   factor_loadings = factor_loadings,
   mimic = "mplus"
 )
-lavaan::summary(strict_fit)
 ```
 
 ### Model Comparisons
@@ -156,12 +190,17 @@ mi <- Comparison(
 
 Fit Measures
 
-
 ```{r}
 mi
 ```
 
-Likelihood Ratio Tests
+Chi-square Difference Tests
+
+```{r}
+anova(mi)
+```
+
+Summary of the fitted models
 
 ```{r}
 summary(mi)

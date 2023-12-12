@@ -17,6 +17,17 @@ Comparison(configural = NULL, weak = NULL, strong = NULL, strict = NULL, ...)
 
 \item{...}{Additional arguments to pass to \code{\link[lavaan:lavTestLRT]{lavaan::lavTestLRT()}}.}
 }
+\value{
+Returns an object of class \code{longmi} which is
+a list with the following elements:
+\describe{
+\item{call}{Function call.}
+\item{args}{List of function arguments.}
+\item{fit}{Fitted models.}
+\item{measures}{Fit measures.}
+\item{fun}{Function used ("Comparison").}
+}
+}
 \description{
 Comparison Measurement Invariance Models
 }

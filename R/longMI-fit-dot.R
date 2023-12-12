@@ -21,6 +21,7 @@
 #'   If `covariance = TRUE`, model the covariances of the measurement error.
 #' @param model_add Additional specification added to the lavaan model syntax.
 #' @param ... Additional arguments to pass to [lavaan::cfa()].
+#' @return Returns a fitted `lavaan` object.
 #' @examples
 #' data("osbornesudick1972", package = "longMI")
 #' fit <- .Fit(

@@ -3,6 +3,7 @@
 #' @author Ivan Jacob Agaloos Pesigan
 #'
 #' @inheritParams Configural
+#' @inherit Configural return
 #' @examples
 #' data("osbornesudick1972", package = "longMI")
 #' strict_fit <- Strict(

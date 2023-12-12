@@ -34,19 +34,34 @@ for the specific factor.}
 If \code{covariance = TRUE},
 model the covariances of the measurement error.}
 
-\item{model_add_configural}{Additional specification added to the lavaan model syntax
+\item{model_add_configural}{Additional specification
+added to the lavaan model syntax
 for the configural invariance model.}
 
-\item{model_add_weak}{Additional specification added to the lavaan model syntax
+\item{model_add_weak}{Additional specification
+added to the lavaan model syntax
 for the weak invariance model.}
 
-\item{model_add_strong}{Additional specification added to the lavaan model syntax
+\item{model_add_strong}{Additional specification
+added to the lavaan model syntax
 for the strong invariance model.}
 
-\item{model_add_strict}{Additional specification added to the lavaan model syntax
+\item{model_add_strict}{Additional specification
+added to the lavaan model syntax
 for the strict invariance model.}
 
 \item{...}{Additional arguments to pass to \code{\link[lavaan:cfa]{lavaan::cfa()}}.}
+}
+\value{
+Returns an object of class \code{longmi} which is
+a list with the following elements:
+\describe{
+\item{call}{Function call.}
+\item{args}{List of function arguments.}
+\item{fit}{Fitted models.}
+\item{measures}{Fit measures.}
+\item{fun}{Function used ("Invariance").}
+}
 }
 \description{
 Test Longitudinal Measurement Invariance

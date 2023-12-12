@@ -39,41 +39,41 @@
     for (j in seq_len(nt)) {
       if (j == 1) {
         factor_means[i, j] <- paste0(
-          "t",
-          time_points[j],
           "f",
           i,
+          "t",
+          time_points[j],
           " ~ 0 * 1"
         )
         factor_variances[i, j] <- paste0(
-          "t",
-          time_points[j],
           "f",
           i,
-          " ~~ 1 * ",
           "t",
           time_points[j],
+          " ~~ 1 * ",
           "f",
-          i
+          i,
+          "t",
+          time_points[j]
         )
       } else {
         factor_means[i, j] <- paste0(
-          "t",
-          time_points[j],
           "f",
           i,
+          "t",
+          time_points[j],
           " ~ 1"
         )
         factor_variances[i, j] <- paste0(
-          "t",
-          time_points[j],
           "f",
           i,
-          " ~~ ",
           "t",
           time_points[j],
+          " ~~ ",
           "f",
-          i
+          i,
+          "t",
+          time_points[j]
         )
       }
     }
