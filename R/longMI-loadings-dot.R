@@ -83,10 +83,10 @@
           if (equal) {
             if (k == first_item) {
               loadings[k, j, i] <- paste0(
-                "t",
-                time_points[i],
                 "f",
                 factors[j],
+                "t",
+                time_points[i],
                 " =~ ",
                 "NA",
                 " * ",
@@ -106,10 +106,10 @@
               )
             } else {
               loadings[k, j, i] <- paste0(
-                "t",
-                time_points[i],
                 "f",
                 factors[j],
+                "t",
+                time_points[i],
                 " =~ ",
                 "l",
                 factors[j],
@@ -124,10 +124,10 @@
           } else {
             if (k == first_item) {
               loadings[k, j, i] <- paste0(
-                "t",
-                time_points[i],
                 "f",
                 factors[j],
+                "t",
+                time_points[i],
                 " =~ ",
                 "NA",
                 " * ",
@@ -147,10 +147,10 @@
               )
             } else {
               loadings[k, j, i] <- paste0(
-                "t",
-                time_points[i],
                 "f",
                 factors[j],
+                "t",
+                time_points[i],
                 " =~ ",
                 "y",
                 time_points[i],

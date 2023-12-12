@@ -7,6 +7,15 @@
 #' @param strong Fitted strong invariance model.
 #' @param strict Fitted strict invariance model.
 #' @param ... Additional arguments to pass to [lavaan::lavTestLRT()].
+#' @return Returns an object of class `longmi` which is
+#'   a list with the following elements:
+#'   \describe{
+#'     \item{call}{Function call.}
+#'     \item{args}{List of function arguments.}
+#'     \item{fit}{Fitted models.}
+#'     \item{measures}{Fit measures.}
+#'     \item{fun}{Function used ("Comparison").}
+#'   }
 #' @examples
 #' data("osbornesudick1972", package = "longMI")
 #' configural_fit <- Configural(
@@ -84,40 +93,6 @@ Comparison <- function(configural = NULL,
       "Provide at least two models as arguments."
     )
   }
-  pairs <- as.data.frame(
-    utils::combn(
-      x = names(models),
-      m = 2
-    )
-  )
-  diff <- lapply(
-    X = pairs,
-    FUN = function(x,
-                   fit,
-                   ...) {
-      return(
-        lavaan::lavTestLRT(
-          fit[[x[1]]],
-          fit[[x[2]]],
-          ...,
-          model.names = c(x[1], x[2])
-        )
-      )
-    },
-    fit = fit,
-    ...
-  )
-  diff_names <- lapply(
-    X = pairs,
-    FUN = function(x) {
-      return(
-        paste(x[1], "against", x[2])
-      )
-    }
-  )
-  dim(diff_names) <- NULL
-  names(diff) <- diff_names
-
   fit_measures <- lapply(
     X = names(models),
     FUN = function(x) {
@@ -133,9 +108,17 @@ Comparison <- function(configural = NULL,
     args = fit_measures
   )
   out <- list(
+    call = match.call(),
+    args = list(
+      configural = configural,
+      weak = weak,
+      strong = strong,
+      strict = strict,
+      cfa_args = ...
+    ),
     fit = fit,
-    fit_measures = fit_measures,
-    difference = diff
+    measures = fit_measures,
+    fun = "Comparison"
   )
   class(out) <- c(
     "longmi",

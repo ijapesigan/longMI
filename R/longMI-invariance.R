@@ -15,15 +15,28 @@
 #' @param covariances Logical.
 #'   If `covariance = TRUE`,
 #'   model the covariances of the measurement error.
-#' @param model_add_configural Additional specification added to the lavaan model syntax
+#' @param model_add_configural Additional specification
+#'   added to the lavaan model syntax
 #'   for the configural invariance model.
-#' @param model_add_weak Additional specification added to the lavaan model syntax
+#' @param model_add_weak Additional specification
+#'   added to the lavaan model syntax
 #'   for the weak invariance model.
-#' @param model_add_strong Additional specification added to the lavaan model syntax
+#' @param model_add_strong Additional specification
+#'   added to the lavaan model syntax
 #'   for the strong invariance model.
-#' @param model_add_strict Additional specification added to the lavaan model syntax
+#' @param model_add_strict Additional specification
+#'   added to the lavaan model syntax
 #'   for the strict invariance model.
 #' @param ... Additional arguments to pass to [lavaan::cfa()].
+#' @return Returns an object of class `longmi` which is
+#'   a list with the following elements:
+#'   \describe{
+#'     \item{call}{Function call.}
+#'     \item{args}{List of function arguments.}
+#'     \item{fit}{Fitted models.}
+#'     \item{measures}{Fit measures.}
+#'     \item{fun}{Function used ("Invariance").}
+#'   }
 #' @examples
 #' data("osbornesudick1972", package = "longMI")
 #' mi <- Invariance(
@@ -105,40 +118,22 @@ Invariance <- function(data,
     what = "cbind",
     args = fit_measures
   )
-  pairs <- as.data.frame(
-    utils::combn(
-      x = models,
-      m = 2
-    )
-  )
-  diff <- lapply(
-    X = pairs,
-    FUN = function(x,
-                   fit) {
-      return(
-        lavaan::lavTestLRT(
-          fit[[x[1]]],
-          fit[[x[2]]],
-          model.names = c(x[1], x[2])
-        )
-      )
-    },
-    fit = fit
-  )
-  diff_names <- lapply(
-    X = pairs,
-    FUN = function(x) {
-      return(
-        paste(x[1], "against", x[2])
-      )
-    }
-  )
-  dim(diff_names) <- NULL
-  names(diff) <- diff_names
   out <- list(
+    call = match.call(),
+    args = list(
+      data = data,
+      time_points = time_points,
+      factor_loadings = factor_loadings,
+      covariances = covariances,
+      model_add_configural = model_add_configural,
+      model_add_weak = model_add_weak,
+      model_add_strong = model_add_strong,
+      model_add_strict = model_add_strict,
+      cfa_args = ...
+    ),
     fit = fit,
-    fit_measures = fit_measures,
-    difference = diff
+    measures = fit_measures,
+    fun = "Invariance"
   )
   class(out) <- c(
     "longmi",
