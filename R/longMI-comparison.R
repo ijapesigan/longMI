@@ -1,4 +1,4 @@
-#' Comparison Measurement Invariance Models
+#' Compare Measurement Invariance Models
 #'
 #' @author Ivan Jacob Agaloos Pesigan
 #'
