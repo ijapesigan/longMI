@@ -2,7 +2,7 @@
 % Please edit documentation in R/longMI-comparison.R
 \name{Comparison}
 \alias{Comparison}
-\title{Comparison Measurement Invariance Models}
+\title{Compare Measurement Invariance Models}
 \usage{
 Comparison(configural = NULL, weak = NULL, strong = NULL, strict = NULL, ...)
 }
@@ -29,7 +29,7 @@ a list with the following elements:
 }
 }
 \description{
-Comparison Measurement Invariance Models
+Compare Measurement Invariance Models
 }
 \examples{
 data("osbornesudick1972", package = "longMI")

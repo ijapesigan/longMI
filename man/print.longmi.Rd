@@ -7,7 +7,9 @@
 \method{print}{longmi}(x, digits = 4, ...)
 }
 \arguments{
-\item{x}{Object of class \code{longmi}.}
+\item{x}{Object of class \code{longmi}
+that is, the output of the \code{\link[=Invariance]{Invariance()}}
+or the \code{\link[=Comparison]{Comparison()}} functions.}
 
 \item{digits}{Digits to print.}
 

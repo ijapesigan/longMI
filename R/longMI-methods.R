@@ -5,7 +5,9 @@
 #' @return Returns a matrix of
 #'   selected fit measures.
 #'
-#' @param x Object of class `longmi`.
+#' @param x Object of class `longmi`
+#'   that is, the output of the [longMI::Invariance()]
+#'   or the [longMI::Comparison()] functions.
 #' @param ... additional arguments.
 #' @param digits Digits to print.
 #'
@@ -27,6 +29,7 @@ print.longmi <- function(x,
                          ...) {
   cat("Call:\n")
   base::print(x$call)
+  cat("\n")
   models <- colnames(x$measures)
   chisq <- x$measures["chisq", ]
   df <- x$measures["df", ]
@@ -64,7 +67,9 @@ print.longmi <- function(x,
 #' @return Returns a list of
 #'   the summary of the fitted models.
 #'
-#' @param object Object of class `longmi`.
+#' @param object Object of class `longmi`
+#'   that is, the output of the [longMI::Invariance()]
+#'   or the [longMI::Comparison()] functions.
 #' @param ... additional arguments to pass to the summary function
 #'   in `lavaan`
 #'
@@ -112,7 +117,9 @@ summary.longmi <- function(object,
 #'
 #' @return Returns a data frame of chi-square difference test results.
 #'
-#' @param object Object of class `longmi`.
+#' @param object Object of class `longmi`
+#'   that is, the output of the [longMI::Invariance()]
+#'   or the [longMI::Comparison()] functions.
 #' @param ... Additional arguments to pass to [lavaan::lavTestLRT()].
 #'
 #' @examples
