@@ -7,12 +7,12 @@
 \method{summary}{longmi}(object, ...)
 }
 \arguments{
-\item{...}{additional arguments to pass to the summary function
-in \code{lavaan}}
-
-\item{x}{Object of class \code{longmi}
+\item{object}{Object of class \code{longmi}
 that is, the output of the \code{\link[=Invariance]{Invariance()}}
 or the \code{\link[=Comparison]{Comparison()}} functions.}
+
+\item{...}{additional arguments to pass to the summary function
+in \code{lavaan}}
 }
 \value{
 Returns a list of

@@ -67,7 +67,7 @@ print.longmi <- function(x,
 #' @return Returns a list of
 #'   the summary of the fitted models.
 #'
-#' @param x Object of class `longmi`
+#' @param object Object of class `longmi`
 #'   that is, the output of the [longMI::Invariance()]
 #'   or the [longMI::Comparison()] functions.
 #' @param ... additional arguments to pass to the summary function
@@ -117,7 +117,7 @@ summary.longmi <- function(object,
 #'
 #' @return Returns a data frame of chi-square difference test results.
 #'
-#' @param x Object of class `longmi`
+#' @param object Object of class `longmi`
 #'   that is, the output of the [longMI::Invariance()]
 #'   or the [longMI::Comparison()] functions.
 #' @param ... Additional arguments to pass to [lavaan::lavTestLRT()].
