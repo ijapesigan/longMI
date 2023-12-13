@@ -96,7 +96,7 @@ Fit Measures
 mi
 ```
 
-Chi-square Difference Tests
+Chi-square Difference Test
 
 ```{r}
 anova(mi)

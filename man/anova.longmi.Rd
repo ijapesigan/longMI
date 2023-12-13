@@ -7,9 +7,11 @@
 \method{anova}{longmi}(object, ...)
 }
 \arguments{
-\item{object}{Object of class \code{longmi}.}
-
 \item{...}{Additional arguments to pass to \code{\link[lavaan:lavTestLRT]{lavaan::lavTestLRT()}}.}
+
+\item{x}{Object of class \code{longmi}
+that is, the output of the \code{\link[=Invariance]{Invariance()}}
+or the \code{\link[=Comparison]{Comparison()}} functions.}
 }
 \value{
 Returns a data frame of chi-square difference test results.
