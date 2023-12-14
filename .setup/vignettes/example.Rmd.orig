@@ -30,6 +30,12 @@ library(longMI)
 
 ## Data
 
+The package assumes that the data is in the wide format
+and the variables are named as follows:
+`paste0("y", time_point, "_", item_number)`.
+For example, for the item 1 from the first time point,
+the variable name should be `y1_1`.
+
 ```{r}
 #| echo = FALSE
 if (!exists("osbornesudick1972")) {
@@ -53,11 +59,6 @@ df <- longMI::osbornesudick1972
 head(df)
 ```
 
-The package assumes that the data is in the wide format
-and the variables are named as follows:
-`paste0("y", time_point, "_", item_number)`.
-For example, for the item 1 from the first time point,
-the variable name should be `y1_1`.
 The data set has two time points (1 and 6).
 There is a single factor with items 1, 2, 3, and 4 as indicators.
 The four items correspond to the information (`y1_1` and `y6_1`),
