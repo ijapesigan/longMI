@@ -55,8 +55,12 @@ lapply(
     print(mi_comparison)
     summary(mi_comparison)
     anova(mi_comparison)
-    npar_mi_comparison <- mi_comparison$measures["npar", ]
-    chisq_mi_comparison <- mi_comparison$measures["chisq", ]
+    mi_comparison_measures <- .FitMeasures(
+      mi_comparison,
+      measures = c("npar", "chisq")
+    )
+    npar_mi_comparison <- mi_comparison_measures[, "npar"]
+    chisq_mi_comparison <- mi_comparison_measures[, "chisq"]
     mi_invariance <- Invariance(
       data = osbornesudick1972,
       time_points = time_points,
@@ -65,8 +69,12 @@ lapply(
     print(mi_invariance)
     summary(mi_invariance)
     anova(mi_invariance)
-    npar_mi_invariance <- mi_invariance$measures["npar", ]
-    chisq_mi_invariance <- mi_invariance$measures["chisq", ]
+    mi_invariance_measures <- .FitMeasures(
+      mi_invariance,
+      measures = c("npar", "chisq")
+    )
+    npar_mi_invariance <- mi_invariance_measures[, "npar"]
+    chisq_mi_invariance <- mi_invariance_measures[, "chisq"]
     testthat::test_that(
       paste(text, "npar comparison"),
       {

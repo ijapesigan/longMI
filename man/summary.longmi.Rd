@@ -4,12 +4,18 @@
 \alias{summary.longmi}
 \title{Summary Method for an Object of Class \code{longmi}}
 \usage{
-\method{summary}{longmi}(object, ...)
+\method{summary}{longmi}(
+  object,
+  measures = c("chisq", "df", "pvalue", "cfi", "tli", "rmsea", "srmr", "aic", "bic"),
+  ...
+)
 }
 \arguments{
 \item{object}{Object of class \code{longmi}
 that is, the output of the \code{\link[=Invariance]{Invariance()}}
 or the \code{\link[=Comparison]{Comparison()}} functions.}
+
+\item{measures}{Vector of fit measures.}
 
 \item{...}{additional arguments to pass to the summary function
 in \code{lavaan}}

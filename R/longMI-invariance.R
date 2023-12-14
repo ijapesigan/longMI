@@ -34,7 +34,6 @@
 #'     \item{call}{Function call.}
 #'     \item{args}{List of function arguments.}
 #'     \item{fit}{Fitted models.}
-#'     \item{measures}{Fit measures.}
 #'     \item{fun}{Function used ("Invariance").}
 #'   }
 #' @examples
@@ -60,12 +59,6 @@ Invariance <- function(data,
                        model_add_strong = NULL,
                        model_add_strict = NULL,
                        ...) {
-  models <- c(
-    "configural",
-    "weak",
-    "strong",
-    "strict"
-  )
   configural <- .Fit(
     type = 0,
     data = data,
@@ -108,16 +101,6 @@ Invariance <- function(data,
     strong = strong,
     strict = strict
   )
-  fit_measures <- lapply(
-    X = fit,
-    FUN = lavaan::inspect,
-    what = "fit.measures"
-  )
-  names(fit_measures) <- models
-  fit_measures <- do.call(
-    what = "cbind",
-    args = fit_measures
-  )
   out <- list(
     call = match.call(),
     args = list(
@@ -132,7 +115,6 @@ Invariance <- function(data,
       cfa_args = ...
     ),
     fit = fit,
-    measures = fit_measures,
     fun = "Invariance"
   )
   class(out) <- c(

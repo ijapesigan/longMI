@@ -4,12 +4,19 @@
 \alias{print.longmi}
 \title{Print Method for an Object of Class \code{longmi}}
 \usage{
-\method{print}{longmi}(x, digits = 4, ...)
+\method{print}{longmi}(
+  x,
+  measures = c("chisq", "df", "pvalue", "cfi", "tli", "rmsea", "srmr", "aic", "bic"),
+  digits = 4,
+  ...
+)
 }
 \arguments{
 \item{x}{Object of class \code{longmi}
 that is, the output of the \code{\link[=Invariance]{Invariance()}}
 or the \code{\link[=Comparison]{Comparison()}} functions.}
+
+\item{measures}{Vector of fit measures.}
 
 \item{digits}{Digits to print.}
 

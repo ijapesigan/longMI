@@ -13,7 +13,6 @@
 #'     \item{call}{Function call.}
 #'     \item{args}{List of function arguments.}
 #'     \item{fit}{Fitted models.}
-#'     \item{measures}{Fit measures.}
 #'     \item{fun}{Function used ("Comparison").}
 #'   }
 #' @examples
@@ -93,20 +92,6 @@ Comparison <- function(configural = NULL,
       "Provide at least two models as arguments."
     )
   }
-  fit_measures <- lapply(
-    X = names(models),
-    FUN = function(x) {
-      lavaan::inspect(
-        object = fit[[x]],
-        what = "fit.measures"
-      )
-    }
-  )
-  names(fit_measures) <- names(models)
-  fit_measures <- do.call(
-    what = "cbind",
-    args = fit_measures
-  )
   out <- list(
     call = match.call(),
     args = list(
@@ -117,7 +102,6 @@ Comparison <- function(configural = NULL,
       cfa_args = ...
     ),
     fit = fit,
-    measures = fit_measures,
     fun = "Comparison"
   )
   class(out) <- c(
