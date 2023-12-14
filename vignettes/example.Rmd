@@ -50,7 +50,7 @@ head(df)
 #> 6  6 15.402 23.399 11.453 20.560 46.437 52.956 22.537 47.716
 ```
 
-The data set has two time points (1 and 6).
+The data set used in this example has two time points (1 and 6).
 There is a single factor with items 1, 2, 3, and 4 as indicators.
 The four items correspond to the information (`y1_1` and `y6_1`),
 comprehension (`y1_2` and `y6_2`),
