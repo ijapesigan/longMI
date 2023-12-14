@@ -108,15 +108,16 @@ the item 1 from the first time point, the variable name should be
 <span><span class="co">#&gt; 4  4 24.795 31.391  8.208 20.197 52.865 42.669 45.802 35.987</span></span>
 <span><span class="co">#&gt; 5  5 25.263 30.263 15.977 35.417 67.368 86.654 72.368 60.417</span></span>
 <span><span class="co">#&gt; 6  6 15.402 23.399 11.453 20.560 46.437 52.956 22.537 47.716</span></span></code></pre></div>
-<p>The data set has two time points (1 and 6). There is a single factor
-with items 1, 2, 3, and 4 as indicators. The four items correspond to
-the information (<code>y1_1</code> and <code>y6_1</code>), comprehension
-(<code>y1_2</code> and <code>y6_2</code>), similarities
-(<code>y1_3</code> and <code>y6_3</code>), and vocabulary
-(<code>y1_4</code> and <code>y6_4</code>) components of the Wechsler
-Intelligence Scale for Children <span class="citation">(Osborne &amp;
-Suddick, 1972)</span>. We can use this information to specify the
-function arguments to be used later as follows:</p>
+<p>The data set used in this example has two time points (1 and 6).
+There is a single factor with items 1, 2, 3, and 4 as indicators. The
+four items correspond to the information (<code>y1_1</code> and
+<code>y6_1</code>), comprehension (<code>y1_2</code> and
+<code>y6_2</code>), similarities (<code>y1_3</code> and
+<code>y6_3</code>), and vocabulary (<code>y1_4</code> and
+<code>y6_4</code>) components of the Wechsler Intelligence Scale for
+Children <span class="citation">(Osborne &amp; Suddick, 1972)</span>. We
+can use this information to specify the function arguments to be used
+later as follows:</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">time_points</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">6</span><span class="op">)</span></span>
 <span><span class="va">factor_loadings</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
