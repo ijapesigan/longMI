@@ -8,6 +8,7 @@
 #' @param x Object of class `longmi`
 #'   that is, the output of the [longMI::Invariance()]
 #'   or the [longMI::Comparison()] functions.
+#' @param measures Vector of fit measures.
 #' @param ... additional arguments.
 #' @param digits Digits to print.
 #'
@@ -25,36 +26,28 @@
 #' @keywords methods
 #' @export
 print.longmi <- function(x,
+                         measures = c(
+                           "chisq",
+                           "df",
+                           "pvalue",
+                           "cfi",
+                           "tli",
+                           "rmsea",
+                           "srmr",
+                           "aic",
+                           "bic"
+                         ),
                          digits = 4,
                          ...) {
   cat("Call:\n")
   base::print(x$call)
   cat("\n")
-  models <- colnames(x$measures)
-  chisq <- x$measures["chisq", ]
-  df <- x$measures["df", ]
-  pvalue <- x$measures["pvalue", ]
-  cfi <- x$measures["cfi", ]
-  tli <- x$measures["tli", ]
-  rmsea <- x$measures["rmsea", ]
-  srmr <- x$measures["srmr", ]
-  aic <- x$measures["aic", ]
-  bic <- x$measures["bic", ]
-  out <- cbind(
-    chisq = chisq,
-    df = df,
-    pvalue = pvalue,
-    cfi = cfi,
-    tli = tli,
-    rmsea = rmsea,
-    srmr = srmr,
-    aic = aic,
-    bic = bic
-  )
-  rownames(out) <- models
   base::print(
     round(
-      out,
+      .FitMeasures(
+        object = x,
+        measures = measures
+      ),
       digits = digits
     )
   )
@@ -70,6 +63,7 @@ print.longmi <- function(x,
 #' @param object Object of class `longmi`
 #'   that is, the output of the [longMI::Invariance()]
 #'   or the [longMI::Comparison()] functions.
+#' @param measures Vector of fit measures.
 #' @param ... additional arguments to pass to the summary function
 #'   in `lavaan`
 #'
@@ -87,9 +81,32 @@ print.longmi <- function(x,
 #' @keywords methods
 #' @export
 summary.longmi <- function(object,
+                           measures = c(
+                             "chisq",
+                             "df",
+                             "pvalue",
+                             "cfi",
+                             "tli",
+                             "rmsea",
+                             "srmr",
+                             "aic",
+                             "bic"
+                           ),
                            ...) {
   cat("Call:\n")
   base::print(object$call)
+  measures <- .FitMeasures(
+    object = object,
+    measures = measures
+  )
+  cat("\nFit Measures\n")
+  base::print(
+    round(
+      x = measures,
+      digits = 4
+    )
+  )
+  cat("\n")
   fit <- object$fit
   fit <- fit[!sapply(X = fit, FUN = is.null)]
   models <- names(fit)
@@ -107,7 +124,10 @@ summary.longmi <- function(object,
     }
   )
   invisible(
-    out
+    list(
+      measures = measures,
+      summary = out
+    )
   )
 }
 
@@ -139,8 +159,9 @@ anova.longmi <- function(object,
                          ...) {
   cat("Call:\n")
   base::print(object$call)
-  models <- colnames(object$measures)
   fit <- object$fit
+  fit <- fit[!sapply(X = fit, FUN = is.null)]
+  models <- names(fit)
   pairs <- as.data.frame(
     utils::combn(
       x = models,

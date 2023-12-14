@@ -136,6 +136,14 @@ summary(mi)
 #> Invariance(data = df, time_points = time_points, factor_loadings = factor_loadings, 
 #>     mimic = "mplus")
 #> 
+#> Fit Measures
+#>               chisq df pvalue    cfi    tli  rmsea   srmr      aic      bic
+#> configural  25.9682 19 0.1311 0.9915 0.9875 0.0424 0.0306 11252.23 11335.18
+#> weak        41.8973 22 0.0064 0.9757 0.9691 0.0666 0.0763 11262.16 11335.16
+#> strong      53.7228 25 0.0007 0.9650 0.9608 0.0750 0.0872 11267.98 11331.03
+#> strict     134.5591 29 0.0000 0.8712 0.8757 0.1336 0.1690 11340.82 11390.59
+#> 
+#> 
 #> 
 #> CONFIGURAL INVARIANCE MODEL
 #> 
@@ -553,6 +561,14 @@ summary(mi)
 #> Call:
 #> Comparison(configural = configural_fit, weak = weak_fit, strong = strong_fit, 
 #>     strict = strict_fit)
+#> 
+#> Fit Measures
+#>               chisq df pvalue    cfi    tli  rmsea   srmr      aic      bic
+#> configural  25.9682 19 0.1311 0.9915 0.9875 0.0424 0.0306 11252.23 11335.18
+#> weak        41.8973 22 0.0064 0.9757 0.9691 0.0666 0.0763 11262.16 11335.16
+#> strong      53.7228 25 0.0007 0.9650 0.9608 0.0750 0.0872 11267.98 11331.03
+#> strict     134.5591 29 0.0000 0.8712 0.8757 0.1336 0.1690 11340.82 11390.59
+#> 
 #> 
 #> 
 #> CONFIGURAL INVARIANCE MODEL

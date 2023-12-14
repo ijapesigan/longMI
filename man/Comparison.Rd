@@ -24,7 +24,6 @@ a list with the following elements:
 \item{call}{Function call.}
 \item{args}{List of function arguments.}
 \item{fit}{Fitted models.}
-\item{measures}{Fit measures.}
 \item{fun}{Function used ("Comparison").}
 }
 }
